@@ -7,5 +7,14 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+
   %body
+    %header.header
+      %p.header_pageTitle SellShare
+      .dropdown
+        = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
+        .dropdown-content
+          %a{:href => "#"} プロフィール
+          %a{:href => "#"} ログアウト
     = yield
