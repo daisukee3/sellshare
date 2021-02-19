@@ -13,4 +13,6 @@
 #  index_tweets_on_user_id  (user_id)
 #
 class Tweet < ApplicationRecord
+
+belongs_to :user
 end
