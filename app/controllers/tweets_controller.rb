@@ -16,8 +16,9 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
-      redirect_to tweets_path(@tweet)
+      redirect_to tweets_path(@tweet), notice: '保存完了'
     else
+      flash.now[:error] = '保存失敗'
       render :new
     end
   end
