@@ -1,4 +1,7 @@
 .container
+  %ul
+  - @tweet.errors.full_messages.each do |message|
+    %li= message
   = form_with(model: @tweet, url: tweets_path, method: 'post', local: true) do |f|
     %div
       = f.label :content, '内容'

@@ -13,6 +13,7 @@
 #  index_tweets_on_user_id  (user_id)
 #
 class Tweet < ApplicationRecord
+  validates :content, presence: true
 
-belongs_to :user
+  belongs_to :user
 end
