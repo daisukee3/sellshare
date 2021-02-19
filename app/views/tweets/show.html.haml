@@ -8,7 +8,7 @@
       .dropdown
         = image_tag 'actions.svg', class: 'dropbtn'
         .dropdown-content.mini
-          %a{:href => "#"} 編集する
+          = link_to '編集する', edit_tweet_path(@tweet)
   .tweet_content
     = @tweet.content
   .tweet_heart
