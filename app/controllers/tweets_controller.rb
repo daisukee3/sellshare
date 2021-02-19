@@ -21,8 +21,23 @@ class TweetsController < ApplicationController
       flash.now[:error] = '保存失敗'
       render :new
     end
+
   end
 
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def update
+    @tweet = Tweet.find(params[:id])
+    if @tweet.update(tweet_params)
+      redirect_to tweets_path(@tweet), notice: '更新完了'
+    else
+      flash.now[:error] = '更新失敗'
+      render :edit
+    end
+
+  end
 
   private
   def tweet_params
