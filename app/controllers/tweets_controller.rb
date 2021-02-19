@@ -28,6 +28,17 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
   end
 
+  def update
+    @tweet = Tweet.find(params[:id])
+    if @tweet.update(tweet_params)
+      redirect_to tweets_path(@tweet), notice: '更新完了'
+    else
+      flash.now[:error] = '更新失敗'
+      render :edit
+    end
+
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:content)
