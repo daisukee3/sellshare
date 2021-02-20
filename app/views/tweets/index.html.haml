@@ -18,7 +18,7 @@
             = image_tag 'default-avatar.png'
             %div
               %p daisuke1225
-              %p 2021/12/25
+              %p= tweet.display_created_at
   = link_to new_tweet_path do
     .float_btn
       %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
