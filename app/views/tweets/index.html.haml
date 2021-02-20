@@ -1,24 +1,7 @@
 .container
-  .tabs
-    .tabs_item.active
-      新着投稿一覧
-    .tabs_item
-      タイムライン
+  = render 'tabs'
   - @tweets.each do |tweet|
-    = link_to tweet_path(tweet) do
-      .card
-        .card_image
-        .card_content
-          .card_title
-            = tweet.content
-          .card_heart
-            = image_tag 'heart.svg'
-            %span 23
-          .card_detail
-            = image_tag 'default-avatar.png'
-            %div
-              %p daisuke1225
-              %p= tweet.display_created_at
+    = render 'tweet', tweet: tweet
   = link_to new_tweet_path do
     .float_btn
       %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
