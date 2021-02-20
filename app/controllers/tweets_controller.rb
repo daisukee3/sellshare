@@ -40,7 +40,7 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    tweet = Tweet.find(params[:id])
+    tweet = current_user.tweets.find(params[:id])
     tweet.destroy!
     redirect_to tweets_path, notice: '削除完了'
   end
