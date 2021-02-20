@@ -15,7 +15,12 @@
 
   %body
     %header.header
-      %p.header_pageTitle SellShare
+      .header_logos
+        - if !current_page?(root_path)
+          = link_to :back do
+            .header_back
+              %i.fa.fa-arrow-circle-o-left.fa-2x{"aria-hidden" => "true"}
+        %p.header_pageTitle SellShare
       - if user_signed_in?
         .dropdown
           = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
@@ -24,8 +29,6 @@
             = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
       - else
         = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
-    %p.notice= notice
-    %p.alert= alert
     - if flash.present?
       .flash
         - flash.each do |key, value|

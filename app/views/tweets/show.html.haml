@@ -3,7 +3,7 @@
     = image_tag 'default-avatar.png'
     %div
       %p naba1225
-      %p 2021/2/19
+      %p= @tweet.display_created_at
     .tweet_detail_actions
       .dropdown
         = image_tag 'actions.svg', class: 'dropbtn'

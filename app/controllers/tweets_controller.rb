@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_tweet, only: [:edit, :update]
 
   def index
     @tweets = Tweet.all
@@ -25,11 +26,9 @@ class TweetsController < ApplicationController
   end
 
   def edit
-    @tweet = current_user.tweets.find(params[:id])
   end
 
   def update
-    @tweet = current_user.tweets.find(params[:id])
     if @tweet.update(tweet_params)
       redirect_to tweets_path(@tweet), notice: '更新完了'
     else
@@ -48,5 +47,9 @@ class TweetsController < ApplicationController
   private
   def tweet_params
     params.require(:tweet).permit(:content)
+  end
+
+  def set_tweet
+    @tweet = current_user.tweets.find(params[:id])
   end
 end
