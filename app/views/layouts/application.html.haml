@@ -15,7 +15,12 @@
 
   %body
     %header.header
-      %p.header_pageTitle SellShare
+      .header_logos
+        - if !current_page?(root_path)
+          = link_to :back do
+            .header_back
+              %i.fa.fa-arrow-circle-o-left.fa-2x{"aria-hidden" => "true"}
+        %p.header_pageTitle SellShare
       - if user_signed_in?
         .dropdown
           = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
