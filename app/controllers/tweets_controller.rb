@@ -10,11 +10,11 @@ class TweetsController < ApplicationController
   end
 
   def new
-    @tweet = Tweet.new
+    @tweet = current_user.tweets.build
   end
 
   def create
-    @tweet = Tweet.new(tweet_params)
+    @tweet = current_user.tweets.build(tweet_params)
     if @tweet.save
       redirect_to tweets_path(@tweet), notice: '保存完了'
     else
@@ -25,11 +25,11 @@ class TweetsController < ApplicationController
   end
 
   def edit
-    @tweet = Tweet.find(params[:id])
+    @tweet = current_user.tweets.find(params[:id])
   end
 
   def update
-    @tweet = Tweet.find(params[:id])
+    @tweet = current_user.tweets.find(params[:id])
     if @tweet.update(tweet_params)
       redirect_to tweets_path(@tweet), notice: '更新完了'
     else
@@ -40,7 +40,7 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    tweet = Tweet.find(params[:id])
+    tweet = current_user.tweets.find(params[:id])
     tweet.destroy!
     redirect_to tweets_path, notice: '削除完了'
   end
