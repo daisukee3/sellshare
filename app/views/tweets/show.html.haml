@@ -15,3 +15,8 @@
     = @tweet.content
   .tweet_heart
     = image_tag 'heart.svg'
+
+.container
+  = link_to new_tweet_comment_path(@tweet) do
+    .btn-secondary
+      コメントを追加
