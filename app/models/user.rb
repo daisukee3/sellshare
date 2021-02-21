@@ -25,4 +25,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tweets, dependent: :destroy
+
+  def has_written?(tweet)
+    tweets.exists?(id: tweet.id)
+  end
 end
