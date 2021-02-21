@@ -2,7 +2,7 @@
   .tweet_detail
     = image_tag 'default-avatar.png'
     %div
-      %p naba1225
+      %p= @tweet.user.account
       %p= @tweet.display_created_at
     - if user_signed_in? && current_user.has_written?(@tweet)
       .tweet_detail_actions
