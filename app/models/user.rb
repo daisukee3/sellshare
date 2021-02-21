@@ -30,4 +30,8 @@ class User < ApplicationRecord
   def has_written?(tweet)
     tweets.exists?(id: tweet.id)
   end
+
+  def prepare_profile
+    profile || build_profile
+  end
 end
