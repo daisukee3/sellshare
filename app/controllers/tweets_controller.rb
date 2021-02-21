@@ -1,13 +1,14 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_tweet, only: [:edit, :update]
+  before_action :set_my_tweet, only: [:edit, :update]
+  before_action :set_tweet, only: [:show]
 
   def index
     @tweets = Tweet.all
   end
 
   def show
-    @tweet = Tweet.find(params[:id])
+    @comments = @tweet.comments
   end
 
   def new
@@ -49,7 +50,11 @@ class TweetsController < ApplicationController
     params.require(:tweet).permit(:content)
   end
 
-  def set_tweet
+  def set_my_tweet
     @tweet = current_user.tweets.find(params[:id])
+  end
+
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
   end
 end
