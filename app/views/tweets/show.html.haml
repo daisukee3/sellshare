@@ -15,6 +15,12 @@
     = @tweet.content
   .tweet_heart
     = image_tag 'heart.svg'
+  
+.tweet
+  %h2 コメント一覧
+  - @comments.each do |comment|
+    .tweet_comment
+      %p= comment.content
 
 .container
   = link_to new_tweet_comment_path(@tweet) do
