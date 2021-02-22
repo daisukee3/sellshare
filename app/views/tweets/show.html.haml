@@ -15,7 +15,9 @@
     = @tweet.content
   - if user_signed_in?
     - if current_user.has_liked?(@tweet)
-      = image_tag 'heart-active.svg'
+      .tweet_heart
+        = link_to tweet_like_path(@tweet), data: { method: 'delete' } do
+          = image_tag 'heart-active.svg'
     - else
       .tweet_heart
         = link_to tweet_like_path(@tweet), data: { method: 'post' } do
