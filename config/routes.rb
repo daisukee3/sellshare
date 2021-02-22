@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :tweets do
     resources :comments, only: [:new, :create]
+
+    resource :like, only: [:create]
   end
 
   resource :profile, only: [:show, :edit, :update]
