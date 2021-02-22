@@ -6,7 +6,7 @@
         = tweet.content
       .card_heart
         = image_tag 'heart.svg'
-        %span 23
+        %span= tweet.like_count
       .card_detail
         = image_tag tweet.user.avatar_image
         %div

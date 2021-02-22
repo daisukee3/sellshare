@@ -18,11 +18,15 @@ class Tweet < ApplicationRecord
   validates :content, uniqueness: true
 
   belongs_to :user
-  
+
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
   def display_created_at
     I18n.l(self.created_at, format: :default)
+  end
+
+  def like_count
+    likes.count
   end
 end
