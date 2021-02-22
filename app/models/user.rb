@@ -32,6 +32,10 @@ class User < ApplicationRecord
     tweets.exists?(id: tweet.id)
   end
 
+  def has_liked?(tweet)
+    likes.exists?(tweet_id: tweet.id)
+  end
+
   def prepare_profile
     profile || build_profile
   end

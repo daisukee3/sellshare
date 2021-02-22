@@ -14,9 +14,12 @@
   .tweet_content
     = @tweet.content
   - if user_signed_in?
-    .tweet_heart
-      = link_to tweet_like_path(@tweet), data: { method: 'post' } do
-        = image_tag 'heart.svg'
+    - if current_user.has_liked?(@tweet)
+      = image_tag 'heart-active.svg'
+    - else
+      .tweet_heart
+        = link_to tweet_like_path(@tweet), data: { method: 'post' } do
+          = image_tag 'heart.svg'
   
 .tweet
   %h2 コメント一覧
