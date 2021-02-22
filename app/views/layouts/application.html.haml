@@ -20,7 +20,8 @@
           = link_to :back do
             .header_back
               %i.fa.fa-arrow-circle-o-left.fa-2x{"aria-hidden" => "true"}
-        %p.header_pageTitle SellShare
+        %p.header_pageTitle
+          = link_to 'SellShare', root_path
       - if user_signed_in?
         .dropdown
           = image_tag current_user.avatar_image, class: 'header_avatar dropbtn'
