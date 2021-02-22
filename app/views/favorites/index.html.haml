@@ -1,0 +1,5 @@
+.container
+  %h2
+    お気に入りの記事
+  - @tweets.each do |tweet|
+    = render 'commons/tweet', tweet: tweet

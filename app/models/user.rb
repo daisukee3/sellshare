@@ -25,10 +25,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tweets, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :favorite_tweets, through: :likes, source: :tweet
   has_one :profile, dependent: :destroy
 
   def has_written?(tweet)
     tweets.exists?(id: tweet.id)
+  end
+
+  def has_liked?(tweet)
+    likes.exists?(tweet_id: tweet.id)
   end
 
   def prepare_profile

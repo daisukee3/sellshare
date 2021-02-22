@@ -4,6 +4,10 @@
       %li= message
   = form_with(model: @tweet, local: true) do |f|
     %div
+      = f.label :eyecatch, '画像'
+    %div
+      = f.file_field :eyecatch
+    %div
       = f.label :content, '内容'
     %div
       = f.text_area :content

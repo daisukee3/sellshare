@@ -1,12 +1,14 @@
 = link_to tweet_path(tweet) do
   .card
-    .card_image
+    - if tweet.eyecatch.attached?
+      .card_image
+        = image_tag tweet.eyecatch
     .card_content
       .card_title
         = tweet.content
       .card_heart
         = image_tag 'heart.svg'
-        %span 23
+        %span= tweet.like_count
       .card_detail
         = image_tag tweet.user.avatar_image
         %div

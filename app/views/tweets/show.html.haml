@@ -1,4 +1,7 @@
 .tweet
+  - if @tweet.eyecatch.attached?
+    .tweet_image
+      = image_tag @tweet.eyecatch
   .tweet_detail
     = image_tag @tweet.user.avatar_image
     %div
@@ -13,8 +16,15 @@
             = link_to '削除する', tweet_path(@tweet), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
   .tweet_content
     = @tweet.content
-  .tweet_heart
-    = image_tag 'heart.svg'
+  - if user_signed_in?
+    - if current_user.has_liked?(@tweet)
+      .tweet_heart
+        = link_to tweet_like_path(@tweet), data: { method: 'delete' } do
+          = image_tag 'heart-active.svg'
+    - else
+      .tweet_heart
+        = link_to tweet_like_path(@tweet), data: { method: 'post' } do
+          = image_tag 'heart.svg'
   
 .tweet
   %h2 コメント一覧
