@@ -1,4 +1,7 @@
 .tweet
+  - if @tweet.eyecatch.attached?
+    .tweet_image
+      = image_tag @tweet.eyecatch
   .tweet_detail
     = image_tag @tweet.user.avatar_image
     %div

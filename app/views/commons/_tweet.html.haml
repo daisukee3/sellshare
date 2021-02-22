@@ -1,6 +1,8 @@
 = link_to tweet_path(tweet) do
   .card
-    .card_image
+    - if tweet.eyecatch.attached?
+      .card_image
+        = image_tag tweet.eyecatch
     .card_content
       .card_title
         = tweet.content
