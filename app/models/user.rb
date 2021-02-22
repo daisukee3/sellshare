@@ -26,6 +26,7 @@ class User < ApplicationRecord
 
   has_many :tweets, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :favorite_tweets, through: :likes, source: :tweet
   has_one :profile, dependent: :destroy
 
   def has_written?(tweet)
