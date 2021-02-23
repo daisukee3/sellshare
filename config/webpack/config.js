@@ -1,1 +1,3 @@
-export const performance = { hints: false };
+export const performance = {
+  hints: false,
+};
