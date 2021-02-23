@@ -13,8 +13,6 @@
 #
 class Tweet < ApplicationRecord
   validates :content, presence: true
-  validates :content, length: { maximum: 200 }
-  validates :content, uniqueness: true
 
   belongs_to :user
 
