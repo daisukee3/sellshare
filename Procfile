@@ -1,2 +1,2 @@
-       No Procfile detected, using the default web server.
-       We recommend explicitly declaring how to boot your server process via a Procfile.
+web: bundle exec puma -C config/puma.rb
+release: bundle exec rake db:migrate
