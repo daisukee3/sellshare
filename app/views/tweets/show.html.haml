@@ -1,4 +1,4 @@
-.tweet
+.tweet#tweet-show{data: {tweet_id: @tweet.id}}
   - if @tweet.eyecatch.attached?
     .tweet_image
       = image_tag @tweet.eyecatch
@@ -18,14 +18,12 @@
   .tweet_content
     = @tweet.content
   - if user_signed_in?
-    - if current_user.has_liked?(@tweet)
-      .tweet_heart
-        = link_to tweet_like_path(@tweet), data: { method: 'delete' } do
-          = image_tag 'heart-active.svg'
-    - else
-      .tweet_heart
-        = link_to tweet_like_path(@tweet), data: { method: 'post' } do
-          = image_tag 'heart.svg'
+    .tweet_heart.hidden.active-heart
+      = link_to tweet_like_path(@tweet), data: { method: 'delete' } do
+        = image_tag 'heart-active.svg'
+    .tweet_heart.hidden.inactive-heart
+      = link_to tweet_like_path(@tweet), data: { method: 'post' } do
+        = image_tag 'heart.svg'
   
 .tweet
   %h2 コメント一覧
