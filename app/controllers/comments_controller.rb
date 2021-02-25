@@ -1,4 +1,11 @@
 class CommentsController < ApplicationController
+
+  def index
+    tweet = Tweet.find(params[:tweet_id])
+    comments = tweet.comments
+    render json: comments
+  end
+
   def new
     tweet = Tweet.find(params[:tweet_id])
     @comment = tweet.comments.build
@@ -7,12 +14,9 @@ class CommentsController < ApplicationController
   def create
     tweet = Tweet.find(params[:tweet_id])
     @comment = tweet.comments.build(comment_params)
-    if @comment.save
-      redirect_to tweet_path(tweet), notice: 'コメントを追加'
-    else
-      flash.now[:error] = 'コメントできませんでした'
-      render :new
-    end
+    @comment.save!
+
+    render json: @comment
   end
 
   private

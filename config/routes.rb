@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resource :timeline, only: [:show]
 
   resources :tweets do
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:index, :new, :create]
 
-    resource :like, only: [:create, :destroy]
+    resource :like, only: [:show, :create, :destroy]
   end
 
   resource :profile, only: [:show, :edit, :update]
