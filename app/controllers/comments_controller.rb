@@ -1,4 +1,11 @@
 class CommentsController < ApplicationController
+
+  def index
+    tweet = Tweet.find(params[:tweet_id])
+    comments = tweet.comments
+    render json: comments
+  end
+
   def new
     tweet = Tweet.find(params[:tweet_id])
     @comment = tweet.comments.build

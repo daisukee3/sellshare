@@ -8,7 +8,6 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @comments = @tweet.comments
   end
 
   def new
