@@ -31,6 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
     $('.comment-text-area.hidden').removeClass('hidden')
   })
 
+  $('.add-comment-button').on('click', () => {
+    const content = $('#comment_content').val()
+    if (!content) {
+      window.alert('コメントを入力してください')
+    } else {
+      axios.post(`/tweets/${tweetId}/comments`, {
+        comment: {content: content}
+      })
+        .then((res) => {
+          const comment = res.data
+          $('.comments-container').append(
+            `<div class="tweet_comment"><p>${comment.content}</p></div>`
+          )
+          $('#comment-content').val('')
+        })
+    }
+    
+  })
+
   axios.get(`/tweets/${tweetId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
