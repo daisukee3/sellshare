@@ -16,6 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const dataset = $('#tweet-show').data()
   const tweetId = dataset.tweetId
 
+  axios.get(`/tweets/${tweetId}/comments`)
+    .then((response) => {
+      const comments = response.data
+      comments.forEach((comment) => {
+        $('.comments-container').append(
+          `<div class="tweet_comment"><p>${comment.content}</p></div>`
+        )
+      })
+    })
+
   axios.get(`/tweets/${tweetId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked
