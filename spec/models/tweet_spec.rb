@@ -4,11 +4,7 @@ RSpec.describe Tweet, type: :model do
   let!(:user) { create(:user) }
 
   context '内容が入力されている場合' do
-    let!(:tweet) do
-      user.tweets.build({
-        content: Faker::Lorem.characters(number: 250)
-      })
-    end
+    let!(:tweet) { build(:tweet, user: user) }
 
     it 'tweetを保存できる' do
       expect(tweet).to be_valid
@@ -17,10 +13,10 @@ RSpec.describe Tweet, type: :model do
   end
 
   context '内容が301文字の場合' do
-    let!(:tweet) do
-      user.tweets.create({
-        content: Faker::Lorem.characters(number: 301)
-      })
+    let!(:tweet) { build(:tweet, content: Faker::Lorem.characters(number: 301), user: user) }
+
+    before do
+      tweet.save
     end
 
     it 'tweetを保存できない' do
