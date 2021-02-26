@@ -6,7 +6,7 @@ import '../stylesheets/application';
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -21,8 +21,8 @@ require("channels")
 require("trix")
 require("@rails/actiontext")
 
-import $ from 'jquery'
-import axios from 'axios'
-import { csrfToken } from 'rails-ujs'
+// import $ from 'jquery'
+// import axios from 'axios'
+// import { csrfToken } from 'rails-ujs'
 
-axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
+// axios.defaults.headers.common['X-CSRF-Token'] = csrfToken()
