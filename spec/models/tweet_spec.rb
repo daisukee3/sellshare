@@ -1,13 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Tweet, type: :model do
-  let!(:user) do
-    user = User.create!({
-      account: 'tarou',
-      email: 'test@examplem.com',
-      password: 'password'
-    })
-  end
+  let!(:user) { create(:user) }
 
   context '内容が入力されている場合' do
     let!(:tweet) do
