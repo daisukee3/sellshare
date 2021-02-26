@@ -5,11 +5,7 @@ Rails.application.routes.draw do
 
   resource :timeline, only: [:show]
 
-  resources :tweets do
-    resources :comments, only: [:index, :new, :create]
-
-    resource :like, only: [:show, :create, :destroy]
-  end
+  resources :tweets
 
   resource :profile, only: [:show, :edit, :update]
   resources :favorites, only: [:index]
@@ -19,4 +15,10 @@ Rails.application.routes.draw do
     resources :unfollows, only:[:create]
   end
 
+  namespace :api, defaults: {format: :json} do
+    scope '/tweets/:tweet_id' do
+      resources :comments, only: [:index, :create]
+      resource :like, only: [:show, :create, :destroy]
+    end
+  end
 end
