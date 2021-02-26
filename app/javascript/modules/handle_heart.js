@@ -5,7 +5,7 @@ import axios from 'modules/axios'
 const listenInactiveHeartEvent = (tweetId) => {
 
   $('.inactive-heart').on('click', () => {
-    axios.post(`/tweets/${tweetId}/like`)
+    axios.post(`/api/tweets/${tweetId}/like`)
     .then((response) => {
       if (response.data.status === 'ok') {
         $('.active-heart').removeClass('hidden')
@@ -21,7 +21,7 @@ const listenInactiveHeartEvent = (tweetId) => {
 
 const listenActiveHeartEvent = (tweetId) => {
   $('.active-heart').on('click', () => {
-    axios.delete(`/tweets/${tweetId}/like`)
+    axios.delete(`/api/tweets/${tweetId}/like`)
     .then((response) => {
       if (response.data.status === 'ok') {
         $('.active-heart').addClass('hidden')
