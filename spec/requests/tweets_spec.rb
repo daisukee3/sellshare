@@ -19,9 +19,17 @@ RSpec.describe 'Tweets', type: :request do
 
       it 'tweetが保存される' do
         tweet_params = attributes_for(:tweet)
-        post tweets_path(tweet: tweet_params)
+        post tweets_path({tweet: tweet_params})
         expect(response).to have_http_status(302)
         expect(Tweet.last.content.body.to_plain_text).to eq(tweet_params[:content])
+      end
+    end
+
+    context 'ログインしていない場合' do
+      it 'ログイン画面に遷移' do
+        tweet_params = attributes_for(:tweet)
+        post tweets_path({tweet: tweet_params})
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end
