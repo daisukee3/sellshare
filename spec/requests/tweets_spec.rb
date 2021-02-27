@@ -10,4 +10,19 @@ RSpec.describe 'Tweets', type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe 'POST /tweets' do
+    context 'ログインしている場合' do
+      before do
+        sign_in user
+      end
+
+      it 'tweetが保存される' do
+        tweet_params = attributes_for(:tweet)
+        post tweets_path(tweet: tweet_params)
+        expect(response).to have_http_status(302)
+        expect(Tweet.last.content.body.to_plain_text).to eq(tweet_params[:content])
+      end
+    end
+  end
 end
