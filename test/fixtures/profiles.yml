@@ -3,6 +3,8 @@
 # Table name: profiles
 #
 #  id           :bigint           not null, primary key
+#  age          :integer
+#  gender       :integer
 #  introduction :text
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
