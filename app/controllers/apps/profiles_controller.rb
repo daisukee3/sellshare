@@ -22,7 +22,7 @@ class Apps::ProfilesController < Apps::ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:introduction, :gender, :age, :avatar)
+    params.require(:profile).permit(:introduction, :gender, :age, :type, :avatar)
   end
 
 end

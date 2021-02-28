@@ -36,7 +36,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
-  delegate :age, :gender, to: :profile, allow_nil: true
+  delegate :age, :gender, :type, to: :profile, allow_nil: true
 
 
   def has_written?(tweet)

@@ -19,6 +19,10 @@
       = f.label :age, '年代'
     %div
       = f.select :age, Profile.ages.map { |k, v| [ I18n.t("enum.ages.#{k}"), k ] }, {}, { class: 'text' }
+    %div
+      = f.label :type, '種類'
+    %div
+      = f.select :type, Profile.types.map { |k, v| [ I18n.t("enum.types.#{k}"), k ] }, {}, { class: 'text' }
     
     = f.submit '保存', class: 'btn-first'
 
