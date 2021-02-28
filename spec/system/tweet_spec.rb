@@ -13,7 +13,7 @@ RSpec.describe 'Tweet', type: :system do
 
   it 'tweet詳細を表示できる' do
     visit root_path
-    
+
     tweet = tweets.first
     click_on tweet.content.to_plain_text
 
