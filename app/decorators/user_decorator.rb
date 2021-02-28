@@ -10,4 +10,5 @@ module UserDecorator
     end
   end
 
+
 end
