@@ -36,6 +36,9 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
+  delegate :age, :gender, :type, to: :profile, allow_nil: true
+
+
   def has_written?(tweet)
     tweets.exists?(id: tweet.id)
   end
@@ -62,7 +65,6 @@ class User < ApplicationRecord
   def prepare_profile
     profile || build_profile
   end
-  
 
   private
   def get_user_id(user)

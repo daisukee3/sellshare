@@ -12,5 +12,14 @@
       .card_detail
         = image_tag tweet.user.avatar_image
         %div
-          %p= tweet.user.account
-          %p= tweet.display_created_at
+          #{tweet.user.account}
+        %div
+          （
+        - if tweet.user.gender
+          #{I18n.t("enum.genders.#{tweet.user.gender}")}
+        - if tweet.user.age
+          ・#{I18n.t("enum.ages.#{tweet.user.age}")}
+        - if tweet.user.type
+          ・#{I18n.t("enum.types.#{tweet.user.type}")}
+        %div
+          ）

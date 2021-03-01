@@ -15,7 +15,7 @@ RSpec.describe 'Api::Comments', type: :request do
       expect(body[0]['content']).to eq comments.first.content
       expect(body[1]['content']).to eq comments.second.content
       expect(body[2]['content']).to eq comments.third.content
-      
+
     end
   end
 end
