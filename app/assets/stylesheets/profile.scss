@@ -39,6 +39,10 @@ $image_size: 56px;
       }
     }
 
+      &_follow_count{
+        display: flex;
+      }
+
     &_name {
       display: flex;
       margin-bottom: 8px;
@@ -51,8 +55,21 @@ $image_size: 56px;
       display: flex;
     }
 
+
     &_introduction {
       font-size: 12px;
     }
   }
+
+  &_follower{
+    &_text {
+      margin-right: 5px;
+    }
+  }
+  &_following{
+    &_count{
+      margin-right: 5px;
+    }
+  }
+  
 }
