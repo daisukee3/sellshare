@@ -25,6 +25,18 @@
                 フォロー中
               .profilePage_followbtn_follow.follow.hidden
                 フォローする
+      .profilePage_user_follow_count
+        = link_to account_followings_path(user) do
+          .profilePage_follower_text
+            フォロー :
+        .profilePage_following_count
+          %p= user.followings.count
+        = link_to  account_follows_path(user) do
+          .profilePage_follower_text
+            フォロワー :
+        .profilePage_follower_count#follower_count
+          %p= user.followers.count
+
       .profilePage_user_introduction
         = user.profile&.introduction
   - user.tweets.each do  |tweet|
