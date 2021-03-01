@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import axios from 'modules/axios'
 
-
+// いいねの処理による挙動変更
 const listenInactiveHeartEvent = (tweetId) => {
 
   $('.inactive-heart').on('click', () => {

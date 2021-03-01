@@ -5,6 +5,7 @@ import {
   listenActiveHeartEvent
 } from 'modules/handle_heart'
 
+// いいねされたときの挙動
 const handleHeartDisplay = (hasLiked) => {
   if (hasLiked) {
     $('.active-heart').removeClass('hidden')
@@ -13,6 +14,7 @@ const handleHeartDisplay = (hasLiked) => {
   }
 }
 
+// コメントフォームの挙動
 const handleCommentForm = () => {
   $('.show-comment-form').on('click', () => {
     $('.show-comment-form').addClass('hidden')
@@ -20,6 +22,7 @@ const handleCommentForm = () => {
   })
 }
 
+// コメント追加
 const appendNewComment = (comment) => {
   $('.comments-container').append(
     `<div class="tweet_comment"><p>${comment.content}</p></div>`
@@ -30,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const dataset = $('#tweet-show').data()
   const tweetId = dataset.tweetId
 
+  // コメント機能
   axios.get(`/api/tweets/${tweetId}/comments`)
     .then((response) => {
       const comments = response.data
@@ -60,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
   })
 
+  // いいね機能
   axios.get(`/api/tweets/${tweetId}/like`)
     .then((response) => {
       const hasLiked = response.data.hasLiked

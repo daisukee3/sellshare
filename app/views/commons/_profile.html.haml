@@ -5,25 +5,26 @@
     .profilePage_user_basicInfo
       .profilePage_user_name
         .profilePage_user_displayName
-          #{current_user.account}
+          #{user.account}
           %div
             （
-          - if current_user.gender
-            #{I18n.t("enum.genders.#{current_user.gender}")}
+          - if user.gender
+            #{I18n.t("enum.genders.#{user.gender}")}
           - if current_user.age
-            ・#{I18n.t("enum.ages.#{current_user.age}")}
+            ・#{I18n.t("enum.ages.#{user.age}")}
           - if current_user.type
-            ・#{I18n.t("enum.types.#{current_user.type}")}
+            ・#{I18n.t("enum.types.#{user.type}")}
           %div
             ）
         .profilePage_user_actionButton
           - if user == current_user
             = link_to 'Edit', edit_profile_path
           - else
-            - if current_user&.has_followed?(user)
-              = link_to 'UnFollow', account_unfollows_path(user), data: {method: 'post'}
-            - else 
-              = link_to 'Follow', account_follows_path(user), data: {method: 'post'}
+            .profilePage_followbtn
+              .profilePage_followbtn_following.following.hidden
+                フォロー中
+              .profilePage_followbtn_follow.follow.hidden
+                フォローする
       .profilePage_user_introduction
         = user.profile&.introduction
   - user.tweets.each do  |tweet|
