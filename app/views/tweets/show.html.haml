@@ -14,7 +14,7 @@
     - if @tweet.user.age
       #{I18n.t("enum.ages.#{@tweet.user.age}")}・
     - if @tweet.user.type
-      ・#{I18n.t("enum.types.#{@tweet.user.type}")}・
+      #{I18n.t("enum.types.#{@tweet.user.type}")}・
     %p= @tweet.display_created_at
     %div
       ）
