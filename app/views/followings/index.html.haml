@@ -1,11 +1,16 @@
 .container
   .follow
     %h2 フォロー中
+  .card
   - @followings.each do |following|
     = link_to account_path(following.id) do
-      .follow_detail
-        = image_tag following.avatar_image
-        .follow_name
-          = following.account
-        .follow_introduction
-          = following.introduction
+      .row.no-gutters
+        .col-md-4
+          = image_tag following.avatar_image
+        .col-md-8
+          .card-body
+            %h5.card-title 
+              = following.account
+            %p.card-text
+              = following.introduction
+      .card
