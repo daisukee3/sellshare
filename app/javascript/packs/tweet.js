@@ -25,14 +25,19 @@ const handleCommentForm = () => {
 // コメント追加
 const appendNewComment = (comment) => {
   $('.comments-container').append(
-    `<div class="tweet_comment"><p>${comment.content}</p></div>`
+    `<div class="tweet_comment">
+    <div class="tweet_comment_image">
+      <img class='tweet_comment_image' src='${comment.user.avatar_comment_image}'>
+    </div>
+    <p>${(comment.content)}</p>
+    <p>@${comment.user.account}</p>
+    </div>`
   )
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const dataset = $('#tweet-show').data()
   const tweetId = dataset.tweetId
-
   // コメント機能
   axios.get(`/api/tweets/${tweetId}/comments`)
     .then((response) => {
@@ -44,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch((error) => {
       window.alert('失敗')
     })
-
     handleCommentForm()
 
   $('.add-comment-button').on('click', () => {

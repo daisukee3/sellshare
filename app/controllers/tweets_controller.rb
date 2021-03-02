@@ -46,7 +46,7 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.require(:tweet).permit(:content, :eyecatch)
+    params.require(:tweet).permit(:content, :eyecatch, images: [])
   end
 
   def set_my_tweet
