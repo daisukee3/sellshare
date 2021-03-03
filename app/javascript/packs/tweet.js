@@ -26,11 +26,20 @@ const handleCommentForm = () => {
 const appendNewComment = (comment) => {
   $('.comments-container').append(
     `<div class="tweet_comment">
-    <div class="tweet_comment_image">
-      <img class='tweet_comment_image' src='${comment.user.avatar_comment_image}'>
-    </div>
-    <p>${(comment.content)}</p>
-    <p>@${comment.user.account}</p>
+      <div class="tweet_comment_information">
+        <div class="tweet_comment_image">
+          <img class='tweet_comment_image' src='${comment.user.author_image}'>
+        </div>
+        <div class="tweet_comment_information">
+          <p>@${comment.user.account}</p>
+          <p>${comment.user.profile.gender}</p>
+          <p>${comment.user.profile.age}</p>
+          <p>${comment.user.profile.type}</p>
+        </div>
+      </div>
+        <div class="tweet_comment_content">
+          <p>${(comment.content)}</p>
+        </div>
     </div>`
   )
 }
@@ -46,9 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
         appendNewComment(comment)
       })
     })
-    .catch((error) => {
-      window.alert('失敗')
-    })
+    // .catch((error) => {
+    //   window.alert('失敗')
+    // })
     handleCommentForm()
 
   $('.add-comment-button').on('click', () => {
