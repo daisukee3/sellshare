@@ -77,8 +77,19 @@ $container-padding: 16px;
       height: $heart-size;
     }
   }
-    &_comment_image{
+    &_comment {
+
+    img{
     width: 32px;
     height: 32px;
+    }
+
+    &_information{
+      display: flex;
+      p {
+        margin-left: 15px;
+      }
+    }
+
   }
 }

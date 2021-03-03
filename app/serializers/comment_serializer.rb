@@ -17,5 +17,5 @@
 class CommentSerializer < ActiveModel::Serializer
   attributes :id, :content
   belongs_to :user
-  belongs_to :profile
+  # belongs_to :profile
 end
