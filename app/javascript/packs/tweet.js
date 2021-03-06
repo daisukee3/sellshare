@@ -22,6 +22,15 @@ const handleCommentForm = () => {
   })
 }
 
+// ゴミ箱の表示
+// const currentUserOrNot = () => {
+//   if (tweet.comment.user == current_user) {
+//       $('.tweet_comment_delete_btn').removeClass('hidden')
+//   } else {
+//       $('.tweet_comment_delete_btn').addClass('hidden')
+//   }
+// }
+
 // コメント追加
 const appendNewComment = (comment) => {
   $('.comments-container').append(
@@ -40,6 +49,9 @@ const appendNewComment = (comment) => {
         <div class="tweet_comment_content">
           <p>${(comment.content)}</p>
         </div>
+          <div class="tweet_comment_delete_btn">
+            <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+          </div>
     </div>`
   )
 }
@@ -53,12 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const comments = response.data
       comments.forEach((comment) => {
         appendNewComment(comment)
+        
       })
     })
     // .catch((error) => {
     //   window.alert('失敗')
     // })
     handleCommentForm()
+    // currentUserOrNot()
 
   $('.add-comment-button').on('click', () => {
     const content = $('#comment_content').val()

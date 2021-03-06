@@ -1,4 +1,4 @@
-.tweet#tweet-show{data: {tweet_id: @tweet.id}}
+.tweet#tweet-show{data: {tweet_id: @tweet.id} } 
   - if @tweet.eyecatch.attached?
     .tweet_image
       = image_tag @tweet.eyecatch
@@ -32,16 +32,19 @@
       = image_tag 'heart-active.svg'
     .tweet_heart.hidden.inactive-heart
       = image_tag 'heart.svg'
+    .tweet_heart_count#hearts_count
+      = @tweet.likes.count
   
+.comment-title
+  .tweet_comment_title
+    %h2 <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> コメント
+    -# I18n.t('tweets.comment_list')
 .tweet
-  %h2 コメント
-  -# I18n.t('tweets.comment_list')
-.tweet
-  .comments-container
+  .comments-container#comment-show
 
 .container
   .btn-secondary.show-comment-form
-    コメントを追加
+    <i class="fa fa-commenting-o fa-lg" aria-hidden="true"></i> コメントを追加
   .comment-text-area.hidden
     = text_area_tag :comment_content, '', class: 'sm'
     .btn-secondary.add-comment-button
