@@ -23,4 +23,6 @@ class Tweet < ApplicationRecord
   has_one_attached :eyecatch
   has_rich_text :content
 
+  has_many :notifications, dependent: :destroy
+
 end
