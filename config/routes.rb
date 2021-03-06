@@ -18,12 +18,13 @@ Rails.application.routes.draw do
   scope module: :apps do
     resource :profile, only: [:show, :edit, :update]
     resource :timeline, only: [:show]
+    resource :popular_post, only: [:show]
     resources :favorites, only: [:index]
   end
 
   namespace :api, defaults: {format: :json} do
     scope '/tweets/:tweet_id' do
-      resources :comments, only: [:index, :create]
+      resources :comments, only: [:index, :create, :destroy]
       resource :like, only: [:show, :create, :destroy]
     end
   end

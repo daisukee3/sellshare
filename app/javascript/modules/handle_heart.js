@@ -10,7 +10,10 @@ const listenInactiveHeartEvent = (tweetId) => {
       if (response.data.status === 'ok') {
         $('.active-heart').removeClass('hidden')
         $('.inactive-heart').addClass('hidden')
-      }
+        const heartCount = $(`#hearts_count`).text()
+        const numHeartCount = parseInt(heartCount)
+        $(`#hearts_count`).text(numHeartCount + 1)
+  }
     })
     .catch((e) => {
       window.alert('Error')
@@ -26,6 +29,9 @@ const listenActiveHeartEvent = (tweetId) => {
       if (response.data.status === 'ok') {
         $('.active-heart').addClass('hidden')
         $('.inactive-heart').removeClass('hidden')
+        const heartCount = $(`#hearts_count`).text()
+        const numHeartCount = parseInt(heartCount)
+        $(`#hearts_count`).text(numHeartCount - 1)
       }
     })
     .catch((e) => {
