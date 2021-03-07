@@ -10,6 +10,8 @@ class Api::LikesController < Api::ApplicationController
   def create
     tweet = Tweet.find(params[:tweet_id])
     tweet.likes.create(user_id: current_user.id)
+  
+    tweet.create_notification_like!(current_user)
 
     render json: { status: 'ok' }
   end
