@@ -1,0 +1,35 @@
+- visitor = notification.visitor
+- visited = notification.visited
+.container
+  .col-md-6.mx-auto
+    .form-inline
+      %span
+        = link_to account_path(visitor) do
+          = image_tag notification.visitor.avatar_image
+          %strong
+            = visitor.account
+        = 'さんが'
+
+        - case notification.action
+        - when 'follow' then
+          = "あなたをフォローしました"
+        - when 'like' then
+          = link_to 'あなたの投稿', notification.tweet, style: "font-weight: bold;"
+          = "にいいねしました"
+        - when 'comment' then
+          - if notification.tweet.user_id == visited.id
+            = link_to "あなたの投稿", notification.tweet, style: "font-weight: bold;"
+          - else
+            %span
+              = link_to tweet_path(notification.tweet) do
+                = image_tag notification.visited.avatar_image
+                %strong
+                  = notification.tweet.user.account + 'さんの投稿'
+          = "にコメントしました"
+          %p.text-muted.mb-0
+            -# = notification.tweet.comments.find_by(id: notification.comment_id)
+            -# = Comment.find_by(id: notification.comment_id)&.comment
+
+    .small.text-muted.text-right
+      = time_ago_in_words(notification.created_at).upcase
+    %hr

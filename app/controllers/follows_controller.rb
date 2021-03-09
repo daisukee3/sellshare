@@ -13,7 +13,9 @@ class FollowsController < ApplicationController
   end
 
   def create
-    current_user.follow!(params[:account_id])
+    user = User.find(params[:account_id])
+    current_user.follow!(user)
+    user.create_notification_follow!(current_user)
     render json: { status: 'ok' }
   end
 end

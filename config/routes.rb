@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :tweets
 
+  resources :notifications, only: [:index]
+
   resources :accounts, only:[:show] do
     resources :follows, only:[:index, :show, :create]
     resources :followings, only: [:index]
