@@ -1,0 +1,7 @@
+= link_to(notifications_path) do
+  - if unchecked_notifications.any?
+    %span.fa-stack
+      %i.fa.fa-bell-o.fa-lg.fa-stack-2x{:style => "font-size: 1.4em;"}
+      %i.fa.fa-circle.n-circle.fa-stack-1x
+  - else 
+    %i.fa.fa-bell-o.fa-lg{:style => "font-size: 1.4em;"}

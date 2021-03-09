@@ -12,6 +12,8 @@ class Api::CommentsController < Api::ApplicationController
     @comment.user_id = current_user.id
     @comment.save!
 
+    tweet.create_notification_comment!(current_user, @comment.id)
+
     render json: @comment, include: { user: [ :profile] }
   end
 
