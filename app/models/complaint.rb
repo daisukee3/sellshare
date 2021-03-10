@@ -13,4 +13,8 @@
 #  index_complaints_on_user_id  (user_id)
 #
 class Complaint < ApplicationRecord
+  validates :content, presence: true
+  validates :content, length: { maximum: 300 }
+
+  belongs_to :user
 end
