@@ -22,5 +22,7 @@ module Sellshare
     # the framework and any gems in your application.
     config.i18n.default_locale = :ja
     config.active_job.queue_adapter = :sidekiq
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :JST
   end
 end
