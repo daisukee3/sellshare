@@ -13,6 +13,7 @@
 @import 'footer';
 @import 'follow';
 @import 'notification';
+@import 'complaint';
 
 html {
   word-spacing: 1px;
@@ -22,6 +23,9 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   height: 100%;
+  a {
+    text-decoration: none;
+  }
 }
 
 *,

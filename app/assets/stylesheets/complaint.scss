@@ -1,0 +1,37 @@
+.complaint {
+
+  &_title {
+    padding-top: 15px;
+    padding-bottom: 25px;
+
+    h2 {
+      border-bottom: solid 3px #cce4ff;
+      position: relative;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    h2:after {
+      position: absolute;
+      content: " ";
+      display: block;
+      border-bottom: solid 3px #5472cd;
+      bottom: -3px;
+      width: 20%;
+    }
+  }
+
+  &_list {
+    padding: 5px 0px;
+  }
+
+  &_introduction {
+    img {
+      width: 120px;
+      height: 120px;
+      display: block;
+      margin:auto;
+
+    }
+  }
+}

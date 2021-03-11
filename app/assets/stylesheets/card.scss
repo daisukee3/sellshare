@@ -59,4 +59,17 @@ $avatar-size: 32px;
       width: 100%;
     }
   }
+
+  &_time {
+    padding-right: 10px;
+    padding-bottom: 5px;
+  }
+
+  &_trush {
+    font-size: 10px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+  }
+
 }
