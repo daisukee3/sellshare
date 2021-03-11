@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:index]
 
+  resources :complaints, only: [:index, :new, :create, :destroy]
+
   resources :accounts, only:[:show] do
     resources :follows, only:[:index, :show, :create]
     resources :followings, only: [:index]
