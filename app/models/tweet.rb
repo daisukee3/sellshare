@@ -3,6 +3,7 @@
 # Table name: tweets
 #
 #  id         :bigint           not null, primary key
+#  content    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :bigint           not null
@@ -25,6 +26,7 @@ class Tweet < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
 
+
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
     temp = Notification.where(['visitor_id = ? and visited_id = ? and tweet_id = ? and action = ? ', current_user.id, user_id, id, 'like'])
@@ -43,6 +45,7 @@ class Tweet < ApplicationRecord
     end
   end
 
+
   def create_notification_comment!(current_user, comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = Comment.select(:user_id).where(tweet_id: id).where.not(user_id: current_user.id).distinct
@@ -52,6 +55,7 @@ class Tweet < ApplicationRecord
     # まだ誰もコメントしていない場合は、投稿者に通知を送る
     save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
   end
+
 
   def save_notification_comment!(current_user, comment_id, visited_id)
     # コメントは複数回することが考えられるため、１つの投稿に複数回通知する
