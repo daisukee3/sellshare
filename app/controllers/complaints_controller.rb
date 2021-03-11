@@ -2,7 +2,8 @@ class ComplaintsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @complaints = Complaint.all
+    # @complaints = Complaint.all
+    @complaints = Complaint.where("complaints.created_at > ?", Date.today)
   end
 
   def create
