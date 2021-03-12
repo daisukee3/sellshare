@@ -3,7 +3,7 @@
 # Table name: tweets
 #
 #  id         :bigint           not null, primary key
-#  content    :text
+#  content    :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :bigint           not null
@@ -22,7 +22,6 @@ class Tweet < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_one_attached :eyecatch
-  has_rich_text :content
 
   has_many :notifications, dependent: :destroy
 

@@ -45,6 +45,7 @@ class TweetsController < ApplicationController
   end
 
   def search
+    @search_word = params[:q][:content_cont] if params[:q]
     @q = Tweet.ransack(params[:q])
     @tweets = @q.result(distinct: true)
   end
