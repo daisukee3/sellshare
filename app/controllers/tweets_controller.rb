@@ -44,6 +44,12 @@ class TweetsController < ApplicationController
     redirect_to tweets_path, notice: '削除完了'
   end
 
+  def search
+    @search_word = params[:q][:content_cont] if params[:q]
+    @q = Tweet.ransack(params[:q])
+    @tweets = @q.result(distinct: true)
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:content, :eyecatch, images: [])

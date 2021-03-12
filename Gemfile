@@ -28,6 +28,7 @@ gem 'binding_of_caller'
 gem 'devise'
 gem 'faker'
 gem 'hamlit'
+gem 'ransack'
 gem 'sidekiq'
 
 # Use Active Storage variant
