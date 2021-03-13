@@ -29,7 +29,6 @@ class UserSerializer < ActiveModel::Serializer
     end
 end
 
-
 # , :avatar_comment_image
 # def author_image
 #   if object.avatar_image != 'default-avatar.png'
