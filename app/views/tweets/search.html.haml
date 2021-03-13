@@ -14,3 +14,4 @@
     %h3 投稿一覧
     - @tweets.each do |tweet|
       = render 'commons/tweet', tweet: tweet
+= paginate @tweets
