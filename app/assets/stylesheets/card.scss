@@ -38,6 +38,14 @@ $avatar-size: 32px;
       border-radius: 100%;
       margin-right: 8px;
     }
+
+    &_introduction {
+
+      &_personal {
+        display: flex;
+      }
+      
+    }
   }
 
   &_content {
