@@ -31,6 +31,15 @@ const handleCommentForm = () => {
 //   }
 // }
 
+// コメントを表示するリストの表示（コメントの有無で変更）
+const CommentListDisplay = (appendNewComment) => {
+  if (appendNewComment) {
+    $('.tweet').removeClass('hidden')
+  } else {
+    $('.tweet').removeClass('hidden')
+  }
+}
+
 // コメント追加
 const appendNewComment = (comment) => {
   $('.comments-container').append(
@@ -65,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const comments = response.data
       comments.forEach((comment) => {
         appendNewComment(comment)
-        
+        CommentListDisplay(appendNewComment)
       })
     })
     // .catch((error) => {
