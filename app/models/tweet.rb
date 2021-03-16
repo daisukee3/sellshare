@@ -13,6 +13,7 @@
 #  index_tweets_on_user_id  (user_id)
 #
 class Tweet < ApplicationRecord
+
   validates :content, presence: true
   validates :content, length: { maximum: 300 }
 
@@ -24,7 +25,6 @@ class Tweet < ApplicationRecord
   has_one_attached :eyecatch
 
   has_many :notifications, dependent: :destroy
-
 
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
@@ -44,7 +44,6 @@ class Tweet < ApplicationRecord
     end
   end
 
-
   def create_notification_comment!(current_user, comment_id)
     # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
     temp_ids = Comment.select(:user_id).where(tweet_id: id).where.not(user_id: current_user.id).distinct
@@ -54,7 +53,6 @@ class Tweet < ApplicationRecord
     # まだ誰もコメントしていない場合は、投稿者に通知を送る
     save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
   end
-
 
   def save_notification_comment!(current_user, comment_id, visited_id)
     # コメントは複数回することが考えられるため、１つの投稿に複数回通知する

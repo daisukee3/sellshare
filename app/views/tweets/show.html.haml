@@ -5,19 +5,22 @@
   .tweet_detail
     = link_to account_path(@tweet.user) do
       = image_tag @tweet.user.avatar_image
-    %div
-      #{@tweet.user.account}
-    %div
-      （
-    - if @tweet.user.gender
-      #{I18n.t("enum.genders.#{@tweet.user.gender}")}・
-    - if @tweet.user.age
-      #{I18n.t("enum.ages.#{@tweet.user.age}")}・
-    - if @tweet.user.type
-      #{I18n.t("enum.types.#{@tweet.user.type}")}・
-    %p= @tweet.display_created_at
-    %div
-      ）
+    .tweet_detail_introduction
+      .tweet_detail_introduction_personal
+        %div
+          #{@tweet.user.account}
+        %div
+          （
+        - if @tweet.user.gender
+          #{I18n.t("enum.genders.#{@tweet.user.gender}")}・
+        - if @tweet.user.age
+          #{I18n.t("enum.ages.#{@tweet.user.age}")}・
+        - if @tweet.user.type
+          #{I18n.t("enum.types.#{@tweet.user.type}")}
+        %div
+          ）
+      .tweet_time.text-muted.text-left
+        = time_ago_in_words(@tweet.created_at).upcase
     - if user_signed_in? && current_user.has_written?(@tweet)
       .tweet_detail_actions
         .dropdown
@@ -39,7 +42,7 @@
   .tweet_comment_title
     %h2 <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> コメント
     -# I18n.t('tweets.comment_list')
-.tweet
+.tweet.hidden
   .comments-container#comment-show
 
 .container

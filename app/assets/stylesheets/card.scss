@@ -3,6 +3,11 @@
 $heart-size: 16px;
 $avatar-size: 32px;
 
+.card-cover {
+  a{
+    text-decoration: none;
+  }
+}
 .card {
   background-color: white;
   margin: 16px 0;
@@ -12,13 +17,30 @@ $avatar-size: 32px;
   &_heart {
     display: flex;
 
-    img {
-      width: $heart-size;
-      height: $heart-size;
+    span {
+      margin-left: 8px;
+      margin-right: 5px;
+      font-size: 12px;
+      font-weight: bold;
+      color: $primary-color;
+      line-height: $heart-size;
     }
+  }
+
+  &_various-count {
+    display: flex;
+    flex-wrap:wrap;
+    margin-top: 5px;
+  }
+
+  &_comment {
+    display: flex;
+    flex-wrap:wrap;
+    margin-left: 4px;
 
     span {
       margin-left: 8px;
+      margin-right: 5px;
       font-size: 12px;
       font-weight: bold;
       color: $primary-color;
@@ -38,10 +60,22 @@ $avatar-size: 32px;
       border-radius: 100%;
       margin-right: 8px;
     }
+
+    &_introduction {
+
+      &_personal {
+        display: flex;
+      }
+
+    }
   }
 
-  &_content {
+  &_element {
     padding: 16px 16px;
+  }
+
+  &_element:hover {
+    color: black;
   }
 
   &_image {
