@@ -23,6 +23,10 @@ require("@rails/actiontext")
 import $ from 'jquery'
 import axios from 'modules/axios'
 
+var jQuery = require('jquery')
+global.$ = global.jQuery = jQuery;
+window.$ = window.jQuery = jQuery;
+
 // フォロー機能
 const handleFollowDisplay = (hasFollow) => {
   if (hasFollow) {
