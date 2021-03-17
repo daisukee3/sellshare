@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :comments, only: [:index, :create, :destroy]
   end
 
   resources :notifications, only: [:index]
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     scope '/tweets/:tweet_id' do
-      resources :comments, only: [:index, :create, :destroy]
+      # resources :comments, only: [:index, :create, :destroy]
       resource :like, only: [:show, :create, :destroy]
     end
   end
