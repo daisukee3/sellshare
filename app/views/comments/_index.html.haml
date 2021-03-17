@@ -1,0 +1,45 @@
+- comments.each do |comment|
+  - unless comment.id.nil?
+    %p= link_to "#{comment.user.account}さん", account_path(comment.user.id)
+    %p
+      コメント：#{comment.content}
+    - if comment.user == current_user
+      %p= link_to "削除", tweet_comment_path(comment.tweet_id, comment.id), method: :delete, remote: true
+
+
+
+-# = comments.count
+-# %p 件コメント
+-# %h6.more{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-target" => "#collapseExample", "data-toggle" => "collapse"} もっと見る....
+-# - comments.first(2).each do |comment|
+-#   - unless comment.id.nil?
+-#     %li.comment-container
+-#       .comment-box
+-#         .comment-avatar
+-#           = image_tag comment.user.avatar_image
+-#         .comment-text
+-#           %p= link_to "@#{comment.user.account}", account_path(comment.user.id)
+-#           .comment-entry
+-#             = comment.content
+-#             - if comment.user == current_user
+-#               = link_to api_comment_path(comment.tweet_id, comment.id), method: :delete, confirm: '本当に削除してもよろしいですか？' , remote: true, class: "comment_destroy" do
+-#                 %i.fa.fa-trash{:style => "color: black;"}
+-#           %span.comment-date.pull-right
+-#             = comment.created_at.strftime('%Y/%m/%d %H:%M:%S')
+-# / コメント内容(3件目以降) ----------------------------------------------------------------
+-# #collapseExample.collapse
+-#   - comments.offset(2).each do |comment|
+-#     - unless comment.id.nil?
+-#       %li.comment-container
+-#         .comment-box
+-#           .comment-avatar
+-#             = image_tag comment.user.avatar_image
+-#           .comment-text
+-#             %p= link_to "@#{comment.user.account}", account_path(comment.user.id)
+-#             .comment-entry
+-#               = comment.content
+-#               - if comment.user == current_user
+-#                 = link_to api_comment_path(comment.tweet_id, comment.id), method: :delete, confirm: '本当に削除してもよろしいですか？' , remote: true, class: "comment_destroy" do
+-#                   %i.fa.fa-trash{:style => "color: black;"}
+-#             %span.comment-date.pull-right
+-#               = comment.created_at.strftime('%Y/%m/%d %H:%M:%S')
