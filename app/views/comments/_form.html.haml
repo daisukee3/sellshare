@@ -1,8 +1,8 @@
 = form_with model: [tweet, comment], url: tweet_comments_path(@tweet) do |f|
   %div
-    = f.text_area :content
-  .actions
-    = f.submit "コメントをする"
+    = f.text_area :content, class: 'sm'
+  .actions.pt-3
+    = f.submit "コメントをする", class: 'btn-secondary'
 
 
 

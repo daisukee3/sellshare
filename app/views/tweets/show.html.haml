@@ -38,21 +38,17 @@
     .tweet_heart_count#hearts_count
       = @tweet.likes.count
   
-.row
-%ul
-  %li.comment-create
-    %h3.text-left.title コメント
-  %li#comments_area
-    = render partial: 'comments/index', locals: { comments: @comments }
-%hr/
+.comment-title
+  .tweet_comment_title
+    %h2 <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> コメント
+.tweet#comments_area
+  = render partial: 'comments/index', locals: { comments: @comments }
+
 - if user_signed_in?
-  .comment-create
+  .tweet_comment_create
     %h3.text-left コメントを投稿する
     = render partial: 'comments/form', locals: { comment: @comment, tweet: @tweet }
 
--# .comment-title
--#   .tweet_comment_title
--#     %h2 <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> コメント
 
 -# .tweet.hidden
 -#   .comments-container#comment-show
