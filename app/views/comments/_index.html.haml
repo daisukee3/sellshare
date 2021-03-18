@@ -1,0 +1,83 @@
+%p コメント数：#{comments.count}件
+- comments.each do |comment|
+  - unless comment.id.nil?
+    .comment-container
+      .comment-box
+        .tweet_comment
+          .tweet_comment_image
+            = link_to account_path(comment.user.id) do
+              = image_tag comment.user.avatar_image
+          .tweet_comment_information
+            = link_to "@#{comment.user.account}", account_path(comment.user.id)
+            %div
+              （
+            - if comment.user.gender
+              #{I18n.t("enum.genders.#{comment.user.gender}")}・
+            - if comment.user.age
+              #{I18n.t("enum.ages.#{comment.user.age}")}・
+            - if comment.user.type
+              #{I18n.t("enum.types.#{comment.user.type}")}
+            %div
+              ）
+        .tweet_comment_content
+          = comment.content
+          - if comment.user == current_user
+            = link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, remote: true do
+              %i.fa.fa-trash{:style => "color: black;"}
+          %span.comment-date.pull-right
+            = comment.created_at.strftime('%Y/%m/%d %H:%M:%S')
+          %hr/
+
+
+-# %p コメント数：#{comments.count}件
+-# - comments.each do |comment|
+-#   - unless comment.id.nil?
+-#     %li.comment-container
+-#       .comment-box
+-#         .comment-avatar
+-#           = image_tag comment.user.avatar_image
+-#         %p= link_to "#{comment.user.account}さん", account_path(comment.user.id)
+-#         %p コメント：#{comment.content}
+-#     - if comment.user == current_user
+-#       = link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, remote: true do
+-#         %i.fa.fa-trash{:style => "color: black;"}
+-#       %span.comment-date.pull-right
+-#       = comment.created_at.strftime('%Y/%m/%d %H:%M:%S')
+
+
+
+
+-# %p コメント数：#{comments.count}件
+-# %h6.more{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-target" => "#collapseExample", "data-toggle" => "collapse"} もっと見る....
+-# - comments.first(2).each do |comment|
+-#   - unless comment.id.nil?
+-#     %li.comment-container
+-#       .comment-box
+-#         .comment-avatar
+-#           = image_tag comment.user.avatar_image
+-#         .comment-text
+-#           %p= link_to "@#{comment.user.account}", account_path(comment.user.id)
+-#           .comment-entry
+-#             = comment.content
+-#             - if comment.user == current_user
+-#               = link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, remote: true do
+-#                 %i.fa.fa-trash{:style => "color: black;"}
+-#           %span.comment-date.pull-right
+-#             = comment.created_at.strftime('%Y/%m/%d %H:%M:%S')
+-# / コメント内容(3件目以降) ----------------------------------------------------------------
+-# #collapseExample.collapse
+-#   - comments.offset(2).each do |comment|
+-#     - unless comment.id.nil?
+-#       %li.comment-container
+-#         .comment-box
+-#           .comment-avatar
+-#             = image_tag comment.user.avatar_image
+-#           .comment-text
+-#             %p= link_to "@#{comment.user.account}", account_path(comment.user.id)
+-#             .comment-entry
+-#               = comment.content
+-#               - if comment.user == current_user
+-#                 = link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, remote: true do
+-#                   %i.fa.fa-trash{:style => "color: black;"}
+-#             %span.comment-date.pull-right
+-#               = comment.created_at.strftime('%Y/%m/%d %H:%M:%S')

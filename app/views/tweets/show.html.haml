@@ -41,16 +41,24 @@
 .comment-title
   .tweet_comment_title
     %h2 <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> コメント
-    -# I18n.t('tweets.comment_list')
-.tweet.hidden
-  .comments-container#comment-show
+.tweet#comments_area
+  = render partial: 'comments/index', locals: { comments: @comments }
 
-.container
-  .btn-secondary.show-comment-form
-    <i class="fa fa-commenting-o fa-lg" aria-hidden="true"></i> コメントを追加
-  .comment-text-area.hidden
-    = text_area_tag :comment_content, '', class: 'sm'
-    .btn-secondary.add-comment-button
-      コメントを追加
+- if user_signed_in?
+  .tweet_comment_create
+    %h3.text-left コメントを投稿する
+    = render partial: 'comments/form', locals: { comment: @comment, tweet: @tweet }
+
+
+-# .tweet.hidden
+-#   .comments-container#comment-show
+
+-# .container
+-#   .btn-secondary.show-comment-form
+-#     <i class="fa fa-commenting-o fa-lg" aria-hidden="true"></i> コメントを追加
+-#   .comment-text-area.hidden
+-#     = text_area_tag :comment_content, '', class: 'sm'
+-#     .btn-secondary.add-comment-button
+-#       コメントを追加
 
 = javascript_pack_tag 'tweet'

@@ -41,6 +41,8 @@ $container-padding: 16px;
 
   &_comment {
     padding: 12px 0;
+    display: flex;
+    position: relative;
 
     img{
       width: 32px;
@@ -49,9 +51,12 @@ $container-padding: 16px;
   
     &_information{
       display: flex;
-      p {
-        margin-left: 15px;
-      }
+      padding-left: 10px;
+    }
+
+    &_create {
+      margin: 16px;
+      padding-top: 15px;
     }
   }
 
@@ -107,7 +112,7 @@ $container-padding: 16px;
 }
 
 .comment-title {
-  background-color: teal;
+  background-color: steelblue;
   margin: 16px 16px;
   padding: $container-padding $container-padding;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
