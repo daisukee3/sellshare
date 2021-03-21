@@ -37,4 +37,7 @@ Rails.application.routes.draw do
       resource :like, only: [:show, :create, :destroy]
     end
   end
+
+  get 'news/data'
+  get 'news/index'
 end
