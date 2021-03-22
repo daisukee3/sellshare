@@ -1,16 +1,17 @@
 .container
-  .follow
+  .lists
     %h2 フォロワー
-  .card
-  - @followers.each do |follower|
-    = link_to account_path(follower.id) do
-      .row.no-gutters
-        .col-md-4
-          = image_tag follower.avatar_image
-        .col-md-8
-          .card-body
-            %h5.card-title 
-              = follower.account
-            %p.card-text
-              = follower.introduction
-      .card
+    %hr/
+    - @followers.each do |follower|
+      = link_to account_path(follower.id) do
+        .row.g-0
+          .col-md-4.lists_avatar
+            = image_tag follower.avatar_image
+          .col-md-8
+            .card-body
+              %h5.card-title 
+                = follower.account
+              %p.card-text 
+                = follower.introduction
+      %hr/
+= paginate @followers
