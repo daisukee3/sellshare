@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:index]
 
-  resources :complaints, only: [:index, :new, :create, :destroy]
+  resources :complaints, only: [:index, :create, :destroy]
 
   resources :accounts, only:[:show] do
     resources :follows, only:[:index, :show, :create]
@@ -38,6 +38,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: [:index]
+
   get 'news/data'
   get 'news/index'
+  
 end

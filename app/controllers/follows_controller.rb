@@ -3,7 +3,7 @@ class FollowsController < ApplicationController
 
   def index
     user = User.find(params[:account_id])
-    @followers = user.followers
+    @followers = user.followers.page(params[:page]).per(10)
   end
 
   def show

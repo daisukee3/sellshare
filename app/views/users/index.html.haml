@@ -1,0 +1,20 @@
+.container
+  .lists
+    %h2 ユーザーリスト
+    %hr/
+    - @users.each do |user|
+      = link_to account_path(user.id) do
+        .row.g-0
+          .col-md-4.lists_avatar
+            = image_tag user.avatar_image
+          .col-md-8
+            .card-body
+              %h5.card-title 
+                = user.account
+              %p.card-text 
+                = user.introduction
+      %hr/
+= paginate @users
+
+
+
