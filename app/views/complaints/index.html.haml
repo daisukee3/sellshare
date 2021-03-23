@@ -12,15 +12,44 @@
           %p.card-text あなたのたまったグチ。全て受け止めます。誰にも見られないこの場所であなたの思いを存分に吐き出して、明日を迎えましょう。
   .complaint_list
     %h3 List
-  - @complaints.each do |complaint|
-    .card
-      .card-body
-        = complaint.content
-      .card_trush
-        %i.fa.fa-trash.fa-lg{"aria-hidden" => "true"}
-          = link_to '削除する', complaint_path(complaint), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
-      .card_time.small.text-muted.text-right
-        = time_ago_in_words(complaint.created_at).upcase
-  = link_to new_complaint_path do
-    .float_btn
-      %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+  #complaint_index_new
+    = render 'complaint_new', complaints: @complaints
+
+  - if user_signed_in?
+    .complaint_create
+      -# %h3.text-center 思いを吐き出せ！
+      = render partial: 'form', locals: { complaint: @complaint}
+
+
+
+
+
+
+
+
+  -# コメント参考
+  -# #comments_area
+  -#   = render partial: 'complaint_new', locals: { complaints: @complaints }
+
+  -# - if user_signed_in?
+  -#   .tweet_comment_create
+  -#     %h3.text-left グチる
+  -#     = render partial: 'form', locals: { complaint: @complaint}
+
+
+  -# redirectのやつ
+  -# #complaint_index_new
+  -# = render 'complaint_new', complaints: @complaints
+
+  -# - @complaints.each do |complaint|
+  -#   .card
+  -#     .card-body
+  -#       = complaint.content
+  -#     .card_trush
+  -#       %i.fa.fa-trash.fa-lg{"aria-hidden" => "true"}
+  -#         = link_to '削除する', complaint_path(complaint), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
+  -#     .card_time.small.text-muted.text-right
+  -#       = time_ago_in_words(complaint.created_at).upcase
+  -# = link_to new_complaint_path do
+  -#   .float_btn
+  -#     %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
