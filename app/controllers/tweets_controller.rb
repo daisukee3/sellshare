@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
-    @tweets = Tweet.page(params[:page]).per(5).order(created_at: :desc)
+    @tweets = Tweet.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show
@@ -50,7 +50,7 @@ class TweetsController < ApplicationController
 
   def search
     @search_word = params[:q][:content_cont] if params[:q]
-    @q = Tweet.page(params[:page]).per(5).ransack(params[:q])
+    @q = Tweet.page(params[:page]).per(10).ransack(params[:q])
     @tweets = @q.result(distinct: true)
   end
 
