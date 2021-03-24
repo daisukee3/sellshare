@@ -25,4 +25,6 @@
       = f.select :type, Profile.types.map { |k, v| [ I18n.t("enum.types.#{k}"), k ] }, {}, { class: 'text' }
     
     = f.submit '保存', class: 'btn-first'
+    .user-destroy-btn
+      = link_to "アカウントを削除する",user_path(current_user.id),method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }
 
