@@ -22,7 +22,7 @@
         .tweet_comment_content
           = comment.content
           - if comment.user == current_user
-            = link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, remote: true do
+            = link_to tweet_comment_path(comment.tweet_id, comment.id), method: :delete, remote: true, data: { :confirm => '本当に削除してもよろしいですか？'} do
               %i.fa.fa-trash{:style => "color: black;"}
           %span.comment-date.pull-right
             = comment.created_at.strftime('%Y/%m/%d %H:%M:%S')
