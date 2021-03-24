@@ -11,6 +11,7 @@
             .card-body
               %h5.card-title 
                 = user.account
+                | #{link_to "削除", user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" }}
               %p.card-text 
                 = user.introduction
       %hr/
