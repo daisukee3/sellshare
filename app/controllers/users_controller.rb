@@ -6,8 +6,16 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy!
-    redirect_to root_path, notice: '削除完了'
+    if current_user.admin?
+      @user.destroy
+      redirect_to root_path, notice: 'ユーザーを削除しました'
+    elsif current_user?(@user)
+      @user.destroy
+      redirect_to root_path, notice: '自分のアカウントを削除しました'
+    else
+      flash[:danger] = "他人のアカウントは削除できません"
+      redirect_to root_path
+    end
   end
 
 end
