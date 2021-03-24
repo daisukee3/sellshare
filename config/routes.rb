@@ -38,7 +38,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :destroy]
 
   get 'news/data'
   get 'news/index'

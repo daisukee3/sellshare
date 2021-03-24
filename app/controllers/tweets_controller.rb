@@ -43,9 +43,17 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    tweet = current_user.tweets.find(params[:id])
-    tweet.destroy!
-    redirect_to tweets_path, notice: '削除完了'
+    @tweet = Tweet.find(params[:id])
+    if current_user.admin?
+      @tweet.destroy!
+      redirect_to tweets_path, notice: 'ユーザーの投稿を削除完了'
+    elsif current_user
+      @tweet.destroy!
+      redirect_to tweets_path, notice: '削除完了'
+    else
+      flash[:danger] = "他人の投稿は削除できません"
+      redirect_to tweets_path
+    end
   end
 
   def search

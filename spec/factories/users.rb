@@ -4,6 +4,7 @@
 #
 #  id                     :bigint           not null, primary key
 #  account                :string           default(""), not null
+#  admin                  :boolean          default(FALSE)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  remember_created_at    :datetime

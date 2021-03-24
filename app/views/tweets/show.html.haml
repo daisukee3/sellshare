@@ -21,13 +21,15 @@
           ）
       .tweet_time.text-muted.text-left
         = time_ago_in_words(@tweet.created_at).upcase
-    - if user_signed_in? && current_user.has_written?(@tweet)
+    - if (user_signed_in? && current_user.has_written?(@tweet)) || current_user.admin?
       .tweet_detail_actions
         .dropdown
           = image_tag 'actions.svg', class: 'dropbtn'
           .dropdown-content.mini
-            = link_to '編集する', edit_tweet_path(@tweet)
-            = link_to '削除する', tweet_path(@tweet), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
+            - if current_user == @tweet.user
+              = link_to '編集する', edit_tweet_path(@tweet)
+            - if current_user.admin? || (current_user == @tweet.user)
+              = link_to "削除する", tweet_path(@tweet), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
   .tweet_content
     = @tweet.content
   - if user_signed_in?

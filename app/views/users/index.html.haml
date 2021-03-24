@@ -5,12 +5,14 @@
     - @users.each do |user|
       = link_to account_path(user.id) do
         .row.g-0
-          .col-md-4.lists_avatar
+          .col-md-2.lists_avatar
             = image_tag user.avatar_image
-          .col-md-8
+          .col-md-10
             .card-body
               %h5.card-title 
                 = user.account
+                - if (current_user.admin? && current_user != user) || (!current_user.admin? && current_user == user)
+                  | #{link_to "削除", user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" }}
               %p.card-text 
                 = user.introduction
       %hr/
