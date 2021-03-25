@@ -1,7 +1,8 @@
 .tweet#tweet-show{data: {tweet_id: @tweet.id} } 
   - if @tweet.eyecatch.attached?
     .tweet_image
-      = image_tag @tweet.eyecatch
+      = link_to @tweet.eyecatch, 'data-lightbox': @tweet.eyecatch do
+        = image_tag @tweet.eyecatch
   .tweet_detail
     = link_to account_path(@tweet.user) do
       = image_tag @tweet.user.avatar_image
