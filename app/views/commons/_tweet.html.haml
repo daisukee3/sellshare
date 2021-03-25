@@ -31,4 +31,4 @@
               %div
                 ）
             .card_time.small.text-muted.text-left
-              = time_ago_in_words(tweet.created_at).upcase
+              = tweet.created_at.strftime('%Y/%m/%d')
