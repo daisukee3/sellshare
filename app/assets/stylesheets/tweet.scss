@@ -15,7 +15,7 @@ $container-padding: 16px;
   position: relative;
 
   &_image {
-    height: 180px;
+    height: 230px;
     position: relative;
     overflow: hidden;
     margin: $container-padding * -1 $container-padding * -1 16px;
@@ -90,6 +90,7 @@ $container-padding: 16px;
 
   &_content {
     padding: 24px 0 32px;
+    overflow-wrap: break-word;
   }
 
   &_heart {
