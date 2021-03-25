@@ -1,21 +1,7 @@
 .container
   = form_with model: complaint, url: complaints_path do |f|
     %div
-      = f.text_area :content, class: 'sm'
+      = f.text_area :content, class: 'sm form-control js-text'
+      %p.js-text-count.pull-left
     .actions.pt-3
       = f.submit "グチる", class: 'btn-secondary'
-
-
-
-
-
--# .container
--#   %ul
--#     - @complaint.errors.full_messages.each do |message|
--#       %li= message
--#   = form_with(model: @complaint, local: true) do |f|
--#     %div
--#       = f.label :content, '内容'
--#     %div
--#       = f.text_area :content
--#     = f.submit '保存', class: 'btn-first'
