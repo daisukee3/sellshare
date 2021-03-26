@@ -1,11 +1,11 @@
 = link_to tweet_path(tweet) do
   .card
-    - if tweet.eyecatch.attached?
-      .card_image
-        = image_tag tweet.eyecatch
     .card_element
       .card_content
         = tweet.content
+      - if tweet.eyecatch.attached?
+        .card_image
+          = image_tag tweet.eyecatch
       .card_item
         .card_various-count
           .card_heart
@@ -18,17 +18,14 @@
           = image_tag tweet.user.avatar_image
           .card_detail_introduction
             .card_detail_introduction_personal
-              %div
+              .card_detail_introduction_personal_account
                 #{tweet.user.account}
-              %div
-                （
-              - if tweet.user.gender
-                #{I18n.t("enum.genders.#{tweet.user.gender}")}
-              - if tweet.user.age
-                ・#{I18n.t("enum.ages.#{tweet.user.age}")}
-              - if tweet.user.type
-                ・#{I18n.t("enum.types.#{tweet.user.type}")}
-              %div
-                ）
-            .card_time.small.text-muted.text-left
+                .card_detail_introduction_personal_item
+                  - if tweet.user.gender
+                    #{I18n.t("enum.genders.#{tweet.user.gender}")}
+                  - if tweet.user.age
+                    ・#{I18n.t("enum.ages.#{tweet.user.age}")}
+                  - if tweet.user.type
+                    ・#{I18n.t("enum.types.#{tweet.user.type}")}
+            .card_time.small.text-muted.text-right
               = tweet.created_at.strftime('%Y/%m/%d')

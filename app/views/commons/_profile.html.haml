@@ -10,9 +10,9 @@
             （
           - if user.gender
             #{I18n.t("enum.genders.#{user.gender}")}
-          - if current_user.age
+          - if user.age
             ・#{I18n.t("enum.ages.#{user.age}")}
-          - if current_user.type
+          - if user.type
             ・#{I18n.t("enum.types.#{user.type}")}
           %div
             ）

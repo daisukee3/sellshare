@@ -1,27 +1,18 @@
 .tweet#tweet-show{data: {tweet_id: @tweet.id} } 
-  - if @tweet.eyecatch.attached?
-    .tweet_image
-      = link_to @tweet.eyecatch, 'data-lightbox': @tweet.eyecatch do
-        = image_tag @tweet.eyecatch
   .tweet_detail
     = link_to account_path(@tweet.user) do
       = image_tag @tweet.user.avatar_image
     .tweet_detail_introduction
       .tweet_detail_introduction_personal
-        %div
+        .tweet_detail_introduction_personal_account
           #{@tweet.user.account}
-        %div
-          （
-        - if @tweet.user.gender
-          #{I18n.t("enum.genders.#{@tweet.user.gender}")}・
-        - if @tweet.user.age
-          #{I18n.t("enum.ages.#{@tweet.user.age}")}・
-        - if @tweet.user.type
-          #{I18n.t("enum.types.#{@tweet.user.type}")}
-        %div
-          ）
-      .tweet_time.text-muted.text-left
-        = @tweet.created_at.strftime('%Y/%m/%d %H:%M')
+          .tweet_detail_introduction_personal_item
+            - if @tweet.user.gender
+              #{I18n.t("enum.genders.#{@tweet.user.gender}")}・
+            - if @tweet.user.age
+              #{I18n.t("enum.ages.#{@tweet.user.age}")}・
+            - if @tweet.user.type
+              #{I18n.t("enum.types.#{@tweet.user.type}")}
     - if (user_signed_in? && current_user.has_written?(@tweet)) || current_user.admin?
       .tweet_detail_actions
         .dropdown
@@ -33,6 +24,12 @@
               = link_to "削除する", tweet_path(@tweet), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
   .tweet_content
     = @tweet.content
+  - if @tweet.eyecatch.attached?
+    .tweet_image
+      = link_to @tweet.eyecatch, 'data-lightbox': @tweet.eyecatch do
+        = image_tag @tweet.eyecatch
+  .tweet_time.text-muted.text-left
+    = @tweet.created_at.strftime('%Y/%m/%d %H:%M')
   - if user_signed_in?
     .tweet_heart.hidden.active-heart
       = image_tag 'heart-active.svg'

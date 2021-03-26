@@ -19,6 +19,9 @@ $container-padding: 16px;
     position: relative;
     overflow: hidden;
     margin: $container-padding * -1 $container-padding * -1 16px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
 
     img {
       position: absolute;
@@ -52,6 +55,9 @@ $container-padding: 16px;
     &_information{
       display: flex;
       padding-left: 10px;
+      &_item {
+
+      }
     }
 
     &_create {
@@ -70,6 +76,10 @@ $container-padding: 16px;
     &_introduction {
       &_personal {
         display: flex;
+
+        &_account {
+          padding-right: 12px;
+        }
       }
       
     }
