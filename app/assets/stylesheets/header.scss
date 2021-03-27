@@ -44,6 +44,10 @@ $back-icon-size: 30px;
     line-height: $avatar-size;
     font-size: $font-lg;
     margin-left: 10px;
+    position: absolute;
+    left: 50px;
+    top:  17px;
+
   }
 
   &_logos {
