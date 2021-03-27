@@ -4,15 +4,16 @@
       = image_tag @tweet.user.avatar_image
     .tweet_detail_introduction
       .tweet_detail_introduction_personal
-        .tweet_detail_introduction_personal_account
-          #{@tweet.user.account}
-          .tweet_detail_introduction_personal_item
-            - if @tweet.user.gender
-              #{I18n.t("enum.genders.#{@tweet.user.gender}")}・
-            - if @tweet.user.age
-              #{I18n.t("enum.ages.#{@tweet.user.age}")}・
-            - if @tweet.user.type
-              #{I18n.t("enum.types.#{@tweet.user.type}")}
+        = link_to account_path(@tweet.user) do
+          .tweet_detail_introduction_personal_account
+            #{@tweet.user.account}
+            .tweet_detail_introduction_personal_item
+              - if @tweet.user.gender
+                #{I18n.t("enum.genders.#{@tweet.user.gender}")}・
+              - if @tweet.user.age
+                #{I18n.t("enum.ages.#{@tweet.user.age}")}・
+              - if @tweet.user.type
+                #{I18n.t("enum.types.#{@tweet.user.type}")}
     - if (user_signed_in? && current_user.has_written?(@tweet)) || current_user.admin?
       .tweet_detail_actions
         .dropdown
@@ -48,17 +49,5 @@
   .tweet_comment_create
     %h3.text-left コメントを投稿する
     = render partial: 'comments/form', locals: { comment: @comment, tweet: @tweet }
-
-
--# .tweet.hidden
--#   .comments-container#comment-show
-
--# .container
--#   .btn-secondary.show-comment-form
--#     <i class="fa fa-commenting-o fa-lg" aria-hidden="true"></i> コメントを追加
--#   .comment-text-area.hidden
--#     = text_area_tag :comment_content, '', class: 'sm'
--#     .btn-secondary.add-comment-button
--#       コメントを追加
 
 = javascript_pack_tag 'tweet'

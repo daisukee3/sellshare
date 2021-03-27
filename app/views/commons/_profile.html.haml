@@ -6,16 +6,6 @@
       .profilePage_user_name
         .profilePage_user_displayName
           #{user.account}
-          %div
-            （
-          - if user.gender
-            #{I18n.t("enum.genders.#{user.gender}")}
-          - if user.age
-            ・#{I18n.t("enum.ages.#{user.age}")}
-          - if user.type
-            ・#{I18n.t("enum.types.#{user.type}")}
-          %div
-            ）
         .profilePage_user_actionButton
           - if user == current_user
             = link_to 'Edit', edit_profile_path
@@ -25,10 +15,16 @@
                 フォロー中
               .profilePage_followbtn_follow.follow.hidden
                 フォローする
+      - if user.gender
+        #{I18n.t("enum.genders.#{user.gender}")}
+      - if user.age
+        ・#{I18n.t("enum.ages.#{user.age}")}
+      - if user.type
+        ・#{I18n.t("enum.types.#{user.type}")}
       .profilePage_user_follow_count
         = link_to account_followings_path(user) do
           .profilePage_follower_text
-            フォロー :
+            フォロー中 :
         .profilePage_following_count
           %p= user.followings.count
         = link_to  account_follows_path(user) do
