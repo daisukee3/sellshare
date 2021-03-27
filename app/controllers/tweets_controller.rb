@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
   def show
     @comment = Comment.new
     #新着順で表示
-    @comments = @tweet.comments.order(created_at: :desc)
+    @comments = @tweet.comments
   end
 
   def new

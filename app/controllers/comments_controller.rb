@@ -1,21 +1,15 @@
 class CommentsController < ApplicationController
 
-  # def index
-  #   tweet = Tweet.find(params[:tweet_id])
-  #   comments = tweet.comments
-  #   render json: comments, include: { user: [ :profile] }
-  # end
-
   def create
     @tweet = Tweet.find(params[:tweet_id])
     @comment = @tweet.comments.build(comment_params)
     @comment.user_id = current_user.id
-    @comment.save!
-
-    @tweet.create_notification_comment!(current_user, @comment.id)
-
-    render :index
-    # render json: @comment, include: { user: [ :profile] }
+    if @comment.save
+      @tweet.create_notification_comment!(current_user, @comment.id)
+      render :index
+    else
+      render :index
+    end
   end
 
   def destroy
@@ -24,7 +18,7 @@ class CommentsController < ApplicationController
       @comment.destroy!
       render :index
     elsif current_user
-      @comment.destroy!
+      @comment.destroy! 
       render :index
     else
       render :index

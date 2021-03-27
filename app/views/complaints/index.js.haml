@@ -1,2 +1,3 @@
 $("#complaint_index_new").html("#{escape_javascript(render 'complaint_new', complaints: @complaints)}")
+$("#error_explanation").html("#{escape_javascript(render 'error', { complaint: @complaint })}")
 $("textarea").val('')

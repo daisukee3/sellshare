@@ -1,6 +1,3 @@
 $("#comments_area").html("#{escape_javascript(render 'index', { comments: @comment.tweet.comments })}")
+$("#error_explanation").html("#{escape_javascript(render 'error', { comment: @comment })}")
 $("textarea").val('')
-
-
--# $("#comments_area").html("#{j(render 'index', { comments: @comment.tweet.comments })}")
--# $("textarea").val('')

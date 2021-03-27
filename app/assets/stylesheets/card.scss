@@ -65,6 +65,10 @@ $avatar-size: 32px;
 
       &_personal {
         display: flex;
+
+        &_account {
+          padding-right: 12px;
+        }
       }
 
     }
@@ -79,9 +83,11 @@ $avatar-size: 32px;
   }
 
   &_image {
-    height: 180px;
+    height: 230px;
     position: relative;
     overflow: hidden;
+    border-radius: 5px;
+    margin: 10px;
 
     img {
       position: absolute;
@@ -101,9 +107,13 @@ $avatar-size: 32px;
 
   &_trush {
     font-size: 10px;
+    padding-left: 20px;
+  }
+
+  &_time {
     position: absolute;
-    top: 15px;
     right: 10px;
+    bottom: 10px;
   }
 
 }

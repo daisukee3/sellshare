@@ -15,10 +15,13 @@ $container-padding: 16px;
   position: relative;
 
   &_image {
-    height: 180px;
+    height: 230px;
     position: relative;
     overflow: hidden;
     margin: $container-padding * -1 $container-padding * -1 16px;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
 
     img {
       position: absolute;
@@ -43,6 +46,8 @@ $container-padding: 16px;
     padding: 12px 0;
     display: flex;
     position: relative;
+    
+    
 
     img{
       width: 32px;
@@ -58,6 +63,10 @@ $container-padding: 16px;
       margin: 16px;
       padding-top: 15px;
     }
+
+    &_content {
+      overflow-wrap: break-word;
+    }
   }
 
   &_detail {
@@ -70,6 +79,10 @@ $container-padding: 16px;
     &_introduction {
       &_personal {
         display: flex;
+
+        &_account {
+          padding-right: 12px;
+        }
       }
       
     }
@@ -90,6 +103,7 @@ $container-padding: 16px;
 
   &_content {
     padding: 24px 0 32px;
+    overflow-wrap: break-word;
   }
 
   &_heart {

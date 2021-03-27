@@ -8,17 +8,15 @@
             = link_to account_path(comment.user.id) do
               = image_tag comment.user.avatar_image
           .tweet_comment_information
-            = link_to "@#{comment.user.account}", account_path(comment.user.id)
-            %div
-              （
-            - if comment.user.gender
-              #{I18n.t("enum.genders.#{comment.user.gender}")}・
-            - if comment.user.age
-              #{I18n.t("enum.ages.#{comment.user.age}")}・
-            - if comment.user.type
-              #{I18n.t("enum.types.#{comment.user.type}")}
-            %div
-              ）
+            .tweet_comment_information_account
+              = link_to "@#{comment.user.account}", account_path(comment.user.id)
+              .tweet_comment_information_item
+                - if comment.user.gender
+                  #{I18n.t("enum.genders.#{comment.user.gender}")}・
+                - if comment.user.age
+                  #{I18n.t("enum.ages.#{comment.user.age}")}・
+                - if comment.user.type
+                  #{I18n.t("enum.types.#{comment.user.type}")}
         .tweet_comment_content
           = comment.content
           - if current_user.admin? || (current_user == comment.user)

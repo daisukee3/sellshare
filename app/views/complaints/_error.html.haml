@@ -1,0 +1,5 @@
+- if complaint.errors.any?
+  .error_message.alert.alert-warning
+    %ul
+      - complaint.errors.full_messages.each do |message|
+        %li= message

@@ -8,6 +8,3 @@
           = link_to '削除する', complaint_path(complaint), data: { method: 'delete', remote: true, confirm: '本当に削除してもよろしいですか？' }
       .card_time.small.text-muted.text-right
         = time_ago_in_words(complaint.created_at).upcase
-
--# , method: :delete, remote: true do
--# , data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }

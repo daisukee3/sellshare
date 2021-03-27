@@ -1,12 +1,11 @@
 = form_with model: [tweet, comment], url: tweet_comments_path(@tweet) do |f|
+  - if comment.errors.any?
+    #error_explanation
+      %ul
+        - comment.errors.full_messages.each do |message|
+          %li= message  
   %div
-    = f.text_area :content, class: 'sm'
+    = f.text_area :content, class: 'sm  form-control js-text'
+    %p.js-text-count.pull-left
   .actions.pt-3
     = f.submit "コメントをする", class: 'btn-secondary'
-
-
-
--# / コメント入力フォーム ----------------------------------------------------------
--# = form_with(model: [tweet, comment], url: api_comments_path(@tweet) ) do |f|
--#   = f.text_area :content, class: "input-mysize"
--#   = f.submit "送信", class: "btn btn-outline-dark comment-submit float-right"
