@@ -43,7 +43,7 @@
     %h2 <i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> コメント
 .tweet#comments_area
   = render partial: 'comments/index', locals: { comments: @comments }
-
+#error_explanation
 - if user_signed_in?
   .tweet_comment_create
     %h3.text-left コメントを投稿する
