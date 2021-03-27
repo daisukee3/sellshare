@@ -9,13 +9,13 @@ class ComplaintsController < ApplicationController
   def create
     @complaint = current_user.complaints.build(complaint_params)
     @complaint.user_id = current_user.id
-    @complaint.save
-      # redirect_to complaints_path, notice: '保存完了'
-    @complaints = current_user.complaints.where('complaints.created_at > ?', Date.today)
-    render :index
-
-      # flash.now[:error] = '保存失敗'
-
+    if @complaint.save
+      @complaints = current_user.complaints.where('complaints.created_at > ?', Date.today)
+      render :index
+    else
+      @complaints = current_user.complaints.where('complaints.created_at > ?', Date.today)
+      render :index
+    end
   end
 
   def destroy
@@ -23,7 +23,6 @@ class ComplaintsController < ApplicationController
     complaint.destroy!
     @complaints = current_user.complaints.where('complaints.created_at > ?', Date.today)
     render :index
-    # redirect_to complaints_path, notice: '削除完了'
   end
 
   private

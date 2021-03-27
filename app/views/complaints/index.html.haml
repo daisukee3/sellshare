@@ -14,7 +14,7 @@
     %h3 List
   #complaint_index_new
     = render 'complaint_new', complaints: @complaints
-
+  #error_explanation
   - if user_signed_in?
     .complaint_create
       -# %h3.text-center 思いを吐き出せ！

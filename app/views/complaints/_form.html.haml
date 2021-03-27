@@ -1,8 +1,10 @@
 .container
-  %ul
-    - complaint.errors.full_messages.each do |message|
-      %li= message
   = form_with model: complaint, url: complaints_path do |f|
+    - if complaint.errors.any?
+      #error_explanation
+        %ul
+          - complaint.errors.full_messages.each do |message|
+            %li= message  
     %div
       = f.text_area :content, class: 'sm form-control js-text'
       %p.js-text-count.pull-left
