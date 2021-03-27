@@ -48,13 +48,12 @@ $back-icon-size: 30px;
     position: absolute;
     // left: 90px;
     left: 50px;
-    top:  10px;
-
+    top:  13px;
   }
 
   &_back {
     position: absolute;
-    top: 15px;
+    top: 19px;
     // left: 60px;
     left: 195px;
   }
@@ -66,6 +65,9 @@ $back-icon-size: 30px;
     width: $back-icon-size;
     height: $back-icon-size;
     margin: ($avatar-size - $back-icon-size) / 2 8px 0;
+    a:hover {
+      color: white;
+    }
     }
   
 
@@ -176,7 +178,7 @@ input[type=checkbox] {
     z-index: 99;
     height: 100%;
     width: 100%;
-    top: 22px;
+    top: 25px;
     left: 15px;
     height: 22px;
     width: 22px;
