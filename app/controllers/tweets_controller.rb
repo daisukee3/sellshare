@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :show, :create, :edit, :update, :destroy]
   before_action :set_my_tweet, only: [:edit, :update]
   before_action :set_tweet, only: [:show]
 

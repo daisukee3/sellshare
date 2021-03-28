@@ -24,20 +24,38 @@
         %p.header_pageTitle
           = link_to 'SellShare', root_path
       - if user_signed_in?
-        .dropdown
-          = image_tag current_user.avatar_image, class: 'header_avatar dropbtn'
-          .dropdown-content
-            = render 'notifications/circle'
-            = link_to 'グチる', complaints_path
-            = link_to '検索する', search_tweets_path
-            = link_to 'ニュース', news_index_path
-            = link_to 'ユーザーリスト', users_path
-            = link_to 'プロフィール', profile_path
-            = link_to 'お気に入り', favorites_path
-            = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+        .header_avatarimage
+          = image_tag current_user.avatar_image, class: 'header_avatar'
+        %input#openSidebarMenu.openSidebarMenu{:type => "checkbox"}/
+        %label.sidebarIconToggle{:for => "openSidebarMenu"}
+          .spinner.diagonal.part-1
+          .spinner.horizontal
+          .spinner.diagonal.part-2
+        #sidebarMenu
+          %ul.sidebarMenuInner
+            %li
+              = render 'notifications/circle'
+            %li
+              = link_to 'グチる', complaints_path
+            %li
+              = link_to '検索する', search_tweets_path
+            %li
+              = link_to 'ニュース', news_index_path
+            %li
+              = link_to 'ユーザーリスト', users_path
+            %li
+              = link_to 'プロフィール', profile_path
+            %li
+              = link_to 'お気に入り', favorites_path
+            %li
+              = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
+                %p Twitterにシェア
+            %li
+              = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
       - else
         = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
         = link_to '登録する', new_user_registration_path, class: 'header_signupBtn'
+
     - if flash.present?
       .flash
         - flash.each do |key, value|

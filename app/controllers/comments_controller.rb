@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
       @comment.destroy!
       render :index
     elsif current_user
-      @comment.destroy! 
+      @comment.destroy!
       render :index
     else
       render :index
