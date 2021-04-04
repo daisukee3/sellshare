@@ -21,6 +21,11 @@
 #
 FactoryBot.define do
   factory :notification do
-
+    action { '' }
+    checked { false }
+    association :visitor
+    association :visited
+    association :tweet
+    association :comment
   end
 end

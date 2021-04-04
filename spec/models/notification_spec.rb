@@ -22,5 +22,24 @@
 require 'rails_helper'
 
 RSpec.describe Notification, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
+  let!(:tweet) { create(:tweet, user: user) }
+  let!(:comment) { create(:comment, tweet: tweet, user: other_user) }
+  let!(:notification) { create(:notification, tweet: tweet, comment: comment, visitor: other_user, visited: user) }
+
+  it 'notificationインスタンスが有効であること' do
+    expect(notification).to be_valid
+  end
+
+  it 'visitor_idがnilの場合、無効であること' do
+    notification.visitor_id = nil
+    expect(notification).not_to be_valid
+  end
+
+  it 'visited_idがnilの場合、無効であること' do
+    notification.visited_id = nil
+    expect(notification).not_to be_valid
+  end
+
 end
