@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :show, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
   before_action :set_my_tweet, only: [:edit, :update]
   before_action :set_tweet, only: [:show]
 
@@ -10,7 +11,6 @@ class TweetsController < ApplicationController
 
   def show
     @comment = Comment.new
-    #新着順で表示
     @comments = @tweet.comments
   end
 
@@ -44,17 +44,15 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet = Tweet.find(params[:id])
-    if current_user.admin?
+    if current_user.admin? || current_user == @tweet.user
       @tweet.destroy!
-      redirect_to tweets_path, notice: 'ユーザーの投稿を削除完了'
-    elsif current_user
-      @tweet.destroy!
-      redirect_to tweets_path, notice: '削除完了'
+      redirect_to tweets_path, notice: '投稿を削除完了'
     else
-      flash[:danger] = "他人の投稿は削除できません"
+      flash[:danger] = '他人の投稿は削除できません'
       redirect_to tweets_path
     end
   end
+
 
   def search
     @search_word = params[:q][:content_cont] if params[:q]
@@ -73,5 +71,11 @@ class TweetsController < ApplicationController
 
   def set_tweet
     @tweet = Tweet.find(params[:id])
+  end
+
+  def correct_user
+    # 現在のユーザーが更新対象のtweetを保有しているかどうか確認
+    @tweet = current_user.tweets.find_by(id: params[:id])
+    redirect_to root_path if @tweet.nil?
   end
 end

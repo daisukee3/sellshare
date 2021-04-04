@@ -4,11 +4,11 @@
     .field
       = f.label :email
       %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'text'
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: 'text', id: 'user_email'
     .field
       = f.label :password, class: 'text'
       %br/
-      = f.password_field :password, autocomplete: "current-password", class: 'text'
+      = f.password_field :password, autocomplete: "current-password", class: 'text', id: 'user_password'
     - if devise_mapping.rememberable?
       .field
         = f.check_box :remember_me

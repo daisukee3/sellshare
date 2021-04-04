@@ -21,7 +21,7 @@ RSpec.describe 'Tweets', type: :request do
         tweet_params = attributes_for(:tweet)
         post tweets_path({tweet: tweet_params})
         expect(response).to have_http_status(302)
-        expect(Tweet.last.content.body.to_plain_text).to eq(tweet_params[:content])
+        expect(Tweet.last.content).to eq(tweet_params[:content])
       end
     end
 

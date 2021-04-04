@@ -61,6 +61,10 @@ $image_size: 56px;
     }
   }
 
+  &_followbtn {
+    cursor: pointer;
+  }
+
   &_follower{
     &_text {
       margin-right: 5px;

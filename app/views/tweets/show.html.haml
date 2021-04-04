@@ -33,9 +33,9 @@
     = @tweet.created_at.strftime('%Y/%m/%d %H:%M')
   - if user_signed_in?
     .tweet_heart.hidden.active-heart
-      = image_tag 'heart-active.svg'
+      = image_tag 'heart-active.svg', class: 'img-active-heart'
     .tweet_heart.hidden.inactive-heart
-      = image_tag 'heart.svg'
+      = image_tag 'heart.svg', class: 'img-inactive-heart'
     .tweet_heart_count#hearts_count
       = @tweet.likes.count
   

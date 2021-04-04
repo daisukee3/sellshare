@@ -46,6 +46,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'rubocop-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -56,6 +57,7 @@ group :development do
   gem 'erb2haml'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec'
 end
 
 group :test do

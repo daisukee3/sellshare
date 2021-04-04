@@ -20,7 +20,7 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 FactoryBot.define do
-  factory :user do
+  factory :user, aliases: [:follower, :following] do
     account { Faker::Lorem.characters(number: 5) }
     email { Faker::Internet.email }
     password { 'password' }
@@ -29,6 +29,10 @@ FactoryBot.define do
       after :build do |user|
         build(:profile, user: user)
       end
+    end
+
+    trait :admin do
+      admin { true }
     end
   end
 end
