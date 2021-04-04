@@ -14,6 +14,6 @@
 #
 FactoryBot.define do
   factory :complaint do
-
+    content { Faker::Lorem.characters(number: 300) }
   end
 end

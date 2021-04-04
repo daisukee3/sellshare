@@ -19,8 +19,8 @@ class ComplaintsController < ApplicationController
   end
 
   def destroy
-    complaint = current_user.complaints.find(params[:id])
-    complaint.destroy!
+    @complaint = current_user.complaints.find(params[:id])
+    @complaint.destroy!
     @complaints = current_user.complaints.where('complaints.created_at > ?', Date.today)
     render :index
   end
