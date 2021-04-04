@@ -37,4 +37,13 @@ RSpec.describe Tweet, type: :model do
       expect(tweet.errors.messages[:content][0]).to eq('は300文字以内で入力してください')
     end
   end
+
+  context '並び順' do
+    let!(:tweet_yesterday) { create(:tweet, :yesterday, user: user) }
+    let!(:tweet_one_week_ago) { create(:tweet, :one_week_ago, user: user) }
+    let!(:tweet_one_month_ago) { create(:tweet, :one_month_ago, user: user) }
+    it '最も最近の投稿が最初の投稿になっていること' do
+      expect(tweet_yesterday).to eq Tweet.first
+    end
+  end
 end
