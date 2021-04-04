@@ -25,6 +25,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  before_save :downcase_email
+  validates :account, presence: true, length: { maximum: 30 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 50 },
+                    format: { with: VALID_EMAIL_REGEX },
+                    uniqueness: { case_sensitive: false }
+
   has_many :tweets, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :favorite_tweets, through: :likes, source: :tweet
@@ -69,6 +76,10 @@ class User < ApplicationRecord
     following_relationships.exists?(following_id: user.id)
   end
 
+  def followed_by?(user)
+    follower_relationships.exists?(follower_id: user.id)
+  end
+
   def prepare_profile
     profile || build_profile
   end
@@ -99,5 +110,9 @@ class User < ApplicationRecord
     else
       user
     end
+  end
+
+  def downcase_email
+    self.email = email.downcase
   end
 end
