@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     if current_user.admin?
       @comment.destroy!
       render :index
-    elsif current_user
+    elsif current_user == @comment.user
       @comment.destroy!
       render :index
     else
