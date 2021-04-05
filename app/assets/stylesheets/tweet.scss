@@ -127,7 +127,7 @@ $container-padding: 16px;
 }
 
 .comment-title {
-  background-color: steelblue;
+  background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
   margin: 16px 16px;
   padding: $container-padding $container-padding;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
