@@ -132,10 +132,10 @@ $back-icon-size: 30px;
     position: fixed;
     left: 0;
     width: 200px;
-    margin-top: 50px;
+    margin-top: 51px;
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
-    background: steelblue;
+    background: inherit;
 }
 .sidebarMenuInner{
     margin:0;
