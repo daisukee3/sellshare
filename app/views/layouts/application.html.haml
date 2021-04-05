@@ -26,7 +26,7 @@
       - if user_signed_in?
         .header_avatarimage
           = image_tag current_user.avatar_image, class: 'header_avatar'
-        %input#openSidebarMenu.openSidebarMenu{:type => "checkbox"}/
+        %input#openSidebarMenu.openSidebarMenu.hidden{:type => "checkbox"}/
         %label.sidebarIconToggle{:for => "openSidebarMenu"}
           .spinner.diagonal.part-1
           .spinner.horizontal

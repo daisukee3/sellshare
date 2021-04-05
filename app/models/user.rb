@@ -103,6 +103,10 @@ class User < ApplicationRecord
     end
   end
 
+  def remember_me
+    true
+  end
+
   private
   def get_user_id(user)
     if user.is_a?(User)
