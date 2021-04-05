@@ -1,5 +1,8 @@
 .container
-  %h2 ログイン
+  = render 'devise/shared/recruit_login'
+  .session_title.text-center
+    %h4【一般ユーザーの方はこちら】
+  %h3 ログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       = f.label :email
