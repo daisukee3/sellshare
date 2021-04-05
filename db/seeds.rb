@@ -9,4 +9,4 @@ User.create!(account: '管理人',
   email: 'admin@example.com',
   password: 'popopo',
   password_confirmation: 'popopo',
-  admin: true)  # 追記
+  admin: true)

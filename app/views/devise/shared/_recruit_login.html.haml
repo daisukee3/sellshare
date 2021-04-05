@@ -1,0 +1,27 @@
+.container
+  .recruit-login
+    %h3.title-form.text-center【採用担当者様 専用ログインフォーム】
+    %h4.description-form.text-center
+      下記の「専用ログイン」ボタンを押していただければ、
+      %br>/
+      すぐに専用アカウントでログインが可能です。
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'text', id: 'recruit_user_email', value: 'recruit@example.com'
+      .field
+        = f.label :password, class: 'text'
+        %br/
+        = f.password_field :password, autocomplete: "current-password", class: 'text', id: 'recruit_user_password', value: 'password'
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .actions
+        = f.submit "専用ログイン", class: 'btn-first'
+      .recruit-account.text-center
+        %p ＜採用担当者様 専用アカウント＞
+        %p メールアドレス：recruit@example.com
+        %p パスワード：recruit
+        %p ※フォームに入力済

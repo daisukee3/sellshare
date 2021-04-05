@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if current_user.admin?
       @user.destroy
       redirect_to users_path, notice: 'ユーザーを削除しました'
-    elsif current_user?(@user)
+    elsif @user == current_user
       @user.destroy
       redirect_to root_path, notice: '自分のアカウントを削除しました'
     else
