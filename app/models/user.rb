@@ -88,7 +88,7 @@ class User < ApplicationRecord
     if profile&.avatar&.attached?
       profile.avatar
     else
-      'default-avatar.png'
+      'blue-avatar.png'
     end
   end
 
