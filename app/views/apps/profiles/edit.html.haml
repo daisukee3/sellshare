@@ -8,23 +8,25 @@
     %div
       = f.file_field :avatar
     %div
-      = f.label :introduction, '自己紹介'
+      = f.label :introduction, '自己紹介', class: 'pt-3'
     %div
-      = f.text_area :introduction
+      = f.text_area :introduction, class: 'js-text'
+    %div
+      %p.js-text-count.pull-right
     %div
       = f.label :gender, '性別'
     %div
       = f.select :gender, Profile.genders.map { |k, v| [ I18n.t("enum.genders.#{k}"), k ] }, {}, { class: 'text' }
     %div
-      = f.label :age, '年代'
+      = f.label :age, '年代', class: 'pt-2'
     %div
       = f.select :age, Profile.ages.map { |k, v| [ I18n.t("enum.ages.#{k}"), k ] }, {}, { class: 'text' }
     %div
-      = f.label :type, '種類'
+      = f.label :type, '種類', class: 'pt-2'
     %div
       = f.select :type, Profile.types.map { |k, v| [ I18n.t("enum.types.#{k}"), k ] }, {}, { class: 'text' }
     
-    = f.submit '保存', class: 'btn-first'
+    = f.submit '保存', class: 'btn-first mt-3'
     .user-destroy-btn
-      = link_to "アカウントを削除する",user_path(current_user.id),method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }
+      = link_to "アカウントを削除する",user_path(current_user.id),method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }, class: 'text-danger'
 
