@@ -8,7 +8,7 @@ RSpec.describe 'ユーザー一覧', type: :request do
       before do
         sign_in user
       end
-    
+
       it 'レスポンスが正常に表示されること' do
         get users_path
         expect(response).to render_template('users/index')

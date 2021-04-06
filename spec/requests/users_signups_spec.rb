@@ -18,10 +18,10 @@ RSpec.describe 'ユーザー登録', type: :request do
       follow_redirect!
       expect(response).to render_template('tweets/index')
     end
-  
+
     it '無効なユーザーで登録' do
       expect {
-        post user_registration_path, params: { user: { account: "",
+        post user_registration_path, params: { user: { account: '',
                                             email: 'user@example.com',
                                             password: 'password',
                                             password_confirmation: 'pass' } }

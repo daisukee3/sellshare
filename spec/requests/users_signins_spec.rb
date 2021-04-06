@@ -20,7 +20,7 @@ RSpec.describe 'ログイン', type: :request do
       get complaints_path
       redirect_to new_user_session_path
     end
-  
+
     it '無効なユーザーでログイン' do
       get new_user_session_path
       post user_session_path, params: { user: { email: 'xxx@example.com',
