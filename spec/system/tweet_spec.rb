@@ -72,7 +72,7 @@ RSpec.describe 'Tweet', type: :system do
       before do
         sign_in user
         visit tweet_path(tweet)
-        find('.dropbtn').hover
+        find('.dropBtn').hover
         click_link '編集する'
       end
       it '入力部分に適切なラベルが表示されること' do
@@ -86,7 +86,7 @@ RSpec.describe 'Tweet', type: :system do
       before do
         sign_in user
         visit tweet_path(tweet)
-        find('.dropbtn').hover
+        find('.dropBtn').hover
         click_link '編集する'
       end
       it '有効な更新' do
@@ -110,7 +110,7 @@ RSpec.describe 'Tweet', type: :system do
     before do
       sign_in user
       visit tweet_path(tweet)
-      find('.dropbtn').hover
+      find('.dropBtn').hover
       click_link '削除する'
     end
     context 'Tweetの削除処理', js: true do
@@ -141,7 +141,7 @@ RSpec.describe 'Tweet', type: :system do
   describe 'お気に入り一覧ページ', js: true do
     let!(:tweet) { create(:tweet, user: user) }
     let!(:other_user) { create(:user) }
-    let!(:other_tweet) { create(:tweet, user: other_user) } 
+    let!(:other_tweet) { create(:tweet, user: other_user) }
     before do
       sign_in user
     end
@@ -205,7 +205,7 @@ RSpec.describe 'Tweet', type: :system do
         it 'ログイン後の検索ページに検索窓が表示されていること' do
           expect(page).to have_css '.form-control'
         end
-  
+
         it 'フィードの中から検索ワードに該当する結果が表示されること' do
           create(:tweet, content: '辛い', user: user)
           fill_in 'q[content_cont]', with: '辛い'
@@ -214,7 +214,7 @@ RSpec.describe 'Tweet', type: :system do
           expect(page).to have_css '.card', count: 1
 
         end
-  
+
         it '検索ワードを入れずに検索ボタンを押した場合、料理一覧が表示されること' do
           fill_in 'q[content_cont]', with: ''
           click_button '検索'

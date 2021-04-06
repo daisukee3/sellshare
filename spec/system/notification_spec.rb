@@ -57,7 +57,6 @@ RSpec.describe 'Notification', type: :system do
           expect(page).to have_content 'あなたをフォローしました'
         end
       end
-
     end
   end
 end

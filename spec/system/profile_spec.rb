@@ -37,13 +37,15 @@ RSpec.describe 'Profile', type: :system do
     before do
       sign_in user
     end
-    it 'ユーザーのフォロー/アンフォローができること' do
+    it 'ユーザーのフォロー/アンフォローができ,変更によりカウント表示が変わること' do
       visit account_path(other_user)
       expect(page).to have_content 'フォローする'
       find('.profilePage_followbtn_follow').click
+      expect(page).to have_css('.profilePage_follower_count', text: 1)
       expect(page).to have_content 'フォロー中'
       find('.profilePage_followbtn_following').click
       expect(page).to have_content 'フォローする'
+      expect(page).to have_css('.profilePage_follower_count', text: 0)
     end
   end
 end

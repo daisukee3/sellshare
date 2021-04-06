@@ -26,9 +26,6 @@
                 %strong
                   = notification.tweet.user.account + 'さんの投稿'
           = "にコメントしました"
-          %p.text-muted.mb-0
-            -# = notification.tweet.comments.find_by(id: notification.comment_id)
-            -# = Comment.find_by(id: notification.comment_id)&.comment
 
     .small.text-muted.text-right
       = time_ago_in_words(notification.created_at).upcase

@@ -28,7 +28,7 @@ $back-icon-size: 30px;
     top: 12px;
   }
 
-  a.header_signupBtn {
+  a.header_signUpBtn {
     background-color: $base-bg-color;
     height: $avatar-size;
     border-radius: 8px;
@@ -81,33 +81,12 @@ $back-icon-size: 30px;
   }
 }
 
-.dropbtn {
+.dropBtn {
   border: none;
 }
 
 // サイドバー
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-// html, body {
-//     overflow-x: hidden;
-//     height: 100%;
-// }
-// body {
-//     background: #fff;
-//     padding: 0;
-//     margin: 0;
-//     font-family: 'Varela Round', sans-serif;
-// }
-// .header {
-//     display: block;
-//     margin: 0 auto;
-//     width: 100%;
-//     max-width: 100%;
-//     box-shadow: none;
-//     position: fixed;
-//     height: 60px!important;
-//     overflow: hidden;
-//     z-index: 10;
-// }
 .main {
     margin: 0 auto;
     display: block;
