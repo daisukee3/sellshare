@@ -53,7 +53,6 @@ class TweetsController < ApplicationController
     end
   end
 
-
   def search
     @search_word = params[:q][:content_cont] if params[:q]
     @q = Tweet.page(params[:page]).per(10).ransack(params[:q])
