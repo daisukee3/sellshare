@@ -8,10 +8,10 @@
     %div
       = f.file_field :eyecatch
     %div
-      = f.label :content, '内容'
+      = f.label :content, '内容', class: 'pt-4'
     %div
-      = f.text_area :content, class: 'form-control  js-text'
+      = f.text_area :content, placeholder: '営業の悩みなど投稿しよう！', class: 'form-control  js-text'
       %p.js-text-count.pull-right
     .attention.text-danger
       %p ※不適切と思われる投稿とアカウントに関しては、運営より削除される場合があります。
-    = f.submit '保存', class: 'btn-first'
+    = f.submit '投稿する', class: 'btn-first'

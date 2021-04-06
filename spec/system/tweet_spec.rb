@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Tweet', type: :system do
   let!(:user) { create(:user, :with_profile) }
 
-  describe 'Tweet/index, Tweet/show' do
+  describe 'Tweet/index' do
     let!(:tweets) { create_list(:tweet, 15,  user: user) }
     it 'tweet一覧が表示される' do
       visit root_path
@@ -47,20 +47,20 @@ RSpec.describe 'Tweet', type: :system do
       it '入力部分に適切なラベルが表示されること' do
         expect(page).to have_content '画像'
         expect(page).to have_content '内容'
-        expect(page).to have_button '保存'
+        expect(page).to have_button '投稿する'
       end
     end
 
     context 'Tweet登録処理' do
       it '有効な情報でTweet登録を行うと登録成功のフラッシュが表示されること' do
         fill_in 'tweet[content]', with: '新規営業が辛いです'
-        click_button '保存'
+        click_button '投稿する'
         expect(page).to have_content '保存完了'
       end
 
       it '無効な情報でTweet登録を行うと登録失敗のフラッシュが表示されること' do
         fill_in 'tweet[content]', with: ''
-        click_button '保存'
+        click_button '投稿する'
         expect(page).to have_content '保存失敗'
       end
     end
@@ -78,7 +78,7 @@ RSpec.describe 'Tweet', type: :system do
       it '入力部分に適切なラベルが表示されること' do
         expect(page).to have_content '画像'
         expect(page).to have_content '内容'
-        expect(page).to have_button '保存'
+        expect(page).to have_button '投稿する'
       end
     end
 
@@ -91,14 +91,14 @@ RSpec.describe 'Tweet', type: :system do
       end
       it '有効な更新' do
         fill_in 'tweet[content]', with: 'お客さんと雑談ができない'
-        click_button '保存'
+        click_button '投稿する'
         expect(page).to have_content '更新完了'
         expect(tweet.reload.content).to eq 'お客さんと雑談ができない'
       end
 
       it '無効な更新' do
         fill_in 'tweet[content]', with: ''
-        click_button '保存'
+        click_button '投稿する'
         expect(page).to have_content '更新失敗'
         expect(tweet.reload.content).not_to eq ''
       end
@@ -145,7 +145,7 @@ RSpec.describe 'Tweet', type: :system do
     before do
       sign_in user
     end
-    it 'お気に入り一覧ページが期待通り表示されること' do
+    it '投稿にいいねしたりいいねを外すと、お気に入り一覧ページが期待通り表示されること' do
       visit favorites_path
       expect(page).to have_content 'お気に入りの記事'
       tweet.likes.create(user_id: user.id)
@@ -162,7 +162,7 @@ RSpec.describe 'Tweet', type: :system do
     end
   end
 
-  describe 'tweet/comment', js: true do
+  describe 'tweet/show/comment', js: true do
     context 'コメントの登録＆削除' do
       let!(:tweet) { create(:tweet, user: user) }
       before do
