@@ -2,6 +2,12 @@ const { environment } = require('@rails/webpacker')
 
 module.exports = environment
 
+environment.config.merge({
+  performance: {
+    hints: false
+  }
+})
+
 // const webpack = require('webpack')
 // environment.plugins.append(
 //   'Provide',
