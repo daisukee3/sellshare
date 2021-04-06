@@ -8,5 +8,6 @@ module.exports = {
       },
       stage: 3
     })
-  ]
+  ],
+  performance: { hints: false }
 }
