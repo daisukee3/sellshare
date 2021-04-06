@@ -17,7 +17,7 @@
     - if (user_signed_in? && current_user.has_written?(@tweet)) || current_user.admin?
       .tweet_detail_actions
         .dropdown
-          = image_tag 'actions.svg', class: 'dropbtn'
+          = image_tag 'actions.svg', class: 'dropBtn'
           .dropdown-content.mini
             - if current_user == @tweet.user
               = link_to '編集する', edit_tweet_path(@tweet)

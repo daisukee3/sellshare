@@ -17,9 +17,6 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-require("trix")
-require("@rails/actiontext")
-
 import $ from 'jquery'
 import axios from 'modules/axios'
 
@@ -130,5 +127,3 @@ $(function (){
     $(".js-text-count").text( "残り" + now_count + "文字");
   });
 });
-
-

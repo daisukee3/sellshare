@@ -27,7 +27,7 @@ RSpec.describe 'ユーザーの削除', type: :request do
       it '自分のアカウントを削除できること' do
         expect {
           delete user_path(user)
-        }.to change(User, :count).by(0)
+        }.to change(User, :count).by(-1)
         redirect_to root_path
       end
     end
@@ -50,7 +50,7 @@ RSpec.describe 'ユーザーの削除', type: :request do
       it 'ユーザーと同時に紐づくTweetも削除される' do
         expect {
           delete user_path(user)
-        }.to change(Tweet, :count).by(0)
+        }.to change(Tweet, :count).by(-1)
       end
     end
   end

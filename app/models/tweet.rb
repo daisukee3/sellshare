@@ -19,11 +19,10 @@ class Tweet < ApplicationRecord
 
   belongs_to :user
 
-  has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
-
   has_one_attached :eyecatch
 
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
   def create_notification_like!(current_user)
@@ -68,5 +67,4 @@ class Tweet < ApplicationRecord
     end
     notification.save if notification.valid?
   end
-
 end
