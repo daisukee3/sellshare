@@ -40,15 +40,15 @@ RSpec.describe 'Sessions', type: :system do
         visit new_user_session_path
       end
       it '無効なユーザーでログインを行うとログインが失敗することを確認' do
-        fill_in 'user[email]', with: 'user@example.com'
-        fill_in 'user[password]', with: 'pass'
+        fill_in 'user_email', with: 'user@example.com'
+        fill_in 'user_password', with: 'pass'
         click_button 'ログイン'
         expect(page).to have_content 'Eメールまたはパスワードが違います。'
       end
 
       it '有効なユーザーでログインできることを確認' do
-        fill_in 'user[email]', with: user.email
-        fill_in 'user[password]', with: user.password
+        fill_in 'user_email', with: user.email
+        fill_in 'user_password', with: user.password
         click_button 'ログイン'
         expect(page).to have_content 'ログインしました。'
       end
