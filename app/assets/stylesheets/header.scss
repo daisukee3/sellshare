@@ -71,26 +71,26 @@ $back-icon-size: 30px;
   @media screen and (max-width:640px){
     a.header_loginBtn {
       background-color: $base-bg-color;
-      height: 33px;
+      height: 37px;
       border-radius: 8px;
-      font-size: 10.5px;
-      padding: 8px 6px;
+      font-size: 11px;
+      padding: 11px 6px;
       color: $primary-color;
       position: absolute;
-      right: 70px;
-      top: 16px;
+      right: 73px;
+      top: 14px;
     }
   
     a.header_signUpBtn {
       background-color: $base-bg-color;
-      height: 33px;
+      height: 37px;
       border-radius: 8px;
-      font-size: 10.5px;
-      padding: 8px 6px;
+      font-size: 11px;
+      padding: 11px 6px;
       color: $primary-color;
       position: absolute;
-      right: 8px;
-      top: 16px;
+      right: 11px;
+      top: 14px;
     }
 
     &_pageTitle {
@@ -115,7 +115,11 @@ $back-icon-size: 30px;
         top:  17px;
       }
     }
-
+    .header_back {
+      position: absolute;
+      top: 19px;
+      left: 195px;
+    }
   
     }
 
