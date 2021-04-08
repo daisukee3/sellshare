@@ -1,10 +1,11 @@
 .tabs
   .tabs_item{class: "#{add_active_class(root_path)}"}
-    = link_to 'ALL', root_path
+    = link_to root_path do
+      %i.fa.fa-home{"aria-hidden" => "true"}
   .tabs_item{class: "#{add_active_class(timeline_path)}"}
     = link_to (timeline_path) do
-      %i.fa.fa-user-circle-o{"aria-hidden" => "true"} &nbsp;フォロー中
+      %i.fa.fa-user-circle-o{"aria-hidden" => "true"} 
   .tabs_item{class: "#{add_active_class(popular_post_path)}"}
     = link_to (popular_post_path) do
       .tabs_item_popular
-        %i.fa.fa-line-chart{"aria-hidden" => "true"} &nbsp;人気
+        %i.fa.fa-line-chart{"aria-hidden" => "true"} 
