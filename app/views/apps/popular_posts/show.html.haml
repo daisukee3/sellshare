@@ -1,5 +1,7 @@
 .container
   = render 'commons/tabs'
+  .tabs-select-title
+    %h4 いいねの多い投稿
   - @tweet_rankings.each do |tweet|
     = render 'commons/tweet', tweet: tweet
   = link_to new_tweet_path do

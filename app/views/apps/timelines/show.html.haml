@@ -1,1 +1,10 @@
-= render 'commons/tweets',  tweets: @tweets
+.container
+  = render 'commons/tabs'
+  .tabs-select-title
+    %h4 フォロー中のユーザーの投稿
+  - @tweets.each do |tweet|
+    = render 'commons/tweet', tweet: tweet
+  = link_to new_tweet_path do
+    .float_btn
+      %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+= paginate @tweets
