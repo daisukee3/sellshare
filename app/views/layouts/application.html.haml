@@ -16,8 +16,7 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     %meta{:content => "width=device-width,user-scalable=yes,maximum-scale=2", :name => "viewport"}/
     %link{:href => "https://fonts.gstatic.com", :rel => "preconnect"}/
-    %link{:href => "https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap", :rel => "stylesheet"}/
-
+    %link{:href => "https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&display=swap", :rel => "stylesheet"}/
   %body
     %header.header
       .header_logos
@@ -29,7 +28,6 @@
           = link_to root_path do
             = image_tag 'team_white_big.png'
             %p SellShare
-          -# = link_to 'SellShare', root_path
       - if user_signed_in?
         .header_avatarimage
           = image_tag current_user.avatar_image, class: 'header_avatar'
@@ -82,7 +80,6 @@
                 .boxContainer
                   %i.fa.fa-sign-out{"aria-hidden" => "true"}
                   %p ログアウト
-              -# = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
       - else
         = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn'
         = link_to '登録する', new_user_registration_path, class: 'header_signUpBtn'

@@ -48,7 +48,7 @@
   #error_explanation
   - if user_signed_in?
     .tweet_comment_create
-      %h3.text-left コメントを投稿する
+      %h3.text-left コメントを投稿
       = render partial: 'comments/form', locals: { comment: @comment, tweet: @tweet }
 
 = javascript_pack_tag 'tweet'
