@@ -1,14 +1,13 @@
-.container
-  = form_with model: complaint, url: complaints_path do |f|
-    - if complaint.errors.any?
-      #error_explanation
-        %ul
-          - complaint.errors.full_messages.each do |message|
-            %li= message  
-    %div
-      = f.text_area :content, class: 'sm form-control js-text', placeholder: '思いを吐き出そう！'
-      %p.js-text-count.pull-left
-      .text-right
-        %p ※内容は他ユーザーには公開されません。
-    .actions.pt-3
-      = f.submit "グチる", class: 'btn-secondary'
+= form_with model: complaint, url: complaints_path do |f|
+  - if complaint.errors.any?
+    #error_explanation
+      %ul
+        - complaint.errors.full_messages.each do |message|
+          %li= message  
+  %div
+    = f.text_area :content, class: 'sm form-control js-text', placeholder: '思いを吐き出そう！'
+    %p.js-text-count.pull-left
+    .text-right
+      %p ※内容は他ユーザーには公開されません。
+  .actions.pt-3
+    = f.submit "グチる", class: 'btn-secondary'

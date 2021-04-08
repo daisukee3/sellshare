@@ -1,5 +1,5 @@
 .container
   .favorite-title.pt-2.pb-2.text-center
-    %h2 お気に入りの記事
+    %h2 お気に入りの投稿
   - @tweets.each do |tweet|
     = render 'commons/tweet', tweet: tweet

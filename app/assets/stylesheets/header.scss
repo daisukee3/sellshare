@@ -4,11 +4,16 @@ $avatar-size: 40px;
 $header-padding-y: 16px;
 $back-icon-size: 30px;
 
+
 .header {
   display: flex;
   justify-content: space-between;
   background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
-  
+  position: fixed;
+  width: 100%;
+  height: 65px;
+  z-index: 9999;
+  top: 0px;
   padding: $header-padding-y 16px;
   font-weight: bold;
 
@@ -41,21 +46,32 @@ $back-icon-size: 30px;
   }
 
   &_pageTitle {
-    color: white;
-    line-height: $avatar-size;
-    font-size: $font-lg;
-    margin-left: 10px;
-    position: absolute;
-    // left: 90px;
-    left: 50px;
-    top:  13px;
+    margin-left: 30px;
+    p {
+      color: white;
+      line-height: $avatar-size;
+      font-size: $font-lg;
+      margin-left: 7px;
+      position: absolute;
+      left: 85px;
+      top:  13px;
+      font-family: 'Lora', serif;
+    }
+    display: flex;
+    vertical-align: middle;
+    img {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      left: 55px;
+      top:  17px;
+    }
   }
 
   &_back {
     position: absolute;
     top: 19px;
-    // left: 60px;
-    left: 195px;
+    left: 220px;
   }
 
   &_logos {
@@ -111,7 +127,7 @@ $back-icon-size: 30px;
     position: fixed;
     left: 0;
     width: 200px;
-    margin-top: 51px;
+    margin-top: 49px;
     transform: translateX(-250px);
     transition: transform 250ms ease-in-out;
     background: inherit;
@@ -125,10 +141,27 @@ $back-icon-size: 30px;
     list-style: none;
     color: #fff;
     font-weight: bold;
-    padding: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 9px;
     cursor: pointer;
     border-bottom: 1px solid rgba(255, 255, 255, 0.10);
 }
+// サイドバーの各項目のパディングをスマホ表示に合わせて調整
+@media screen and (max-width:640px){
+  
+  .sidebarMenuInner li{
+    list-style: none;
+    color: #fff;
+    font-weight: bold;
+    // padding: 14.4px;
+    padding: 12.5px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+  }
 .sidebarMenuInner li span{
     display: block;
     font-size: 14px;
@@ -189,6 +222,18 @@ input[type=checkbox] {
     float: left;
     margin-top: 3px;
 }
+
+.boxContainer {
+  display: flex;
+  vertical-align: middle;
+  i {
+    margin-top: 3px;
+  }
+  p {
+    margin-left: 5px;
+  }
+}
+
 input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
     transition: all 0.3s;
     box-sizing: border-box;
