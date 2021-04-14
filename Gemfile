@@ -46,6 +46,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'pry-byebug'
   gem 'rails-controller-testing'
+  gem 'rails-erd'
   gem 'rspec-rails'
   gem 'rubocop-rails'
 end

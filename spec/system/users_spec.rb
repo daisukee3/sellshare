@@ -22,7 +22,7 @@ RSpec.describe 'Users', type: :system do
         fill_in 'user_email', with: 'user@example.com'
         fill_in 'user_password', with: 'password'
         fill_in 'user_password_confirmation', with: 'password'
-        click_button 'Sellshareを始める'
+        click_button 'SellShareを始める'
         expect(page).to have_content 'アカウント登録が完了しました。'
       end
 
@@ -31,7 +31,7 @@ RSpec.describe 'Users', type: :system do
         fill_in 'user_email', with: 'user@example.com'
         fill_in 'user_password', with: 'password'
         fill_in 'user_password_confirmation', with: 'password'
-        click_button 'Sellshareを始める'
+        click_button 'SellShareを始める'
         expect(page).to have_content 'Accountを入力してください'
       end
     end
