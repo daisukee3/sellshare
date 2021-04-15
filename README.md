@@ -10,7 +10,7 @@ URL:https://sellshare.herokuapp.com/
 他者閲覧不可能のパーソナル空間で日々の思いをさらけ出すグチ投稿機能や最新のビジネスニュースを閲覧できる機能も実装  
 
 # 技術的ポイント
-・RSpecでModel, Request, Systemテスト記述（計130examples）  
+・RSpecでModel, Request, Systemテスト記述（計133examples）  
 ・Ajaxを用いた非同期処理（コメント投稿、グチ投稿、フォロー/アンフォロー、お気に入り登録/未登録などの切り替え表示）  
 ・NewsAPIを使用したビジネスニュース閲覧機能  
 ・Rubocopを使用したコード規約に沿った開発  
