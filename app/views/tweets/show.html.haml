@@ -25,7 +25,7 @@
               - if current_user.admin? || (current_user == @tweet.user)
                 = link_to "削除する", tweet_path(@tweet), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
     .tweet_content
-      = @tweet.content
+      = safe_join(@tweet.content.split("\n"),tag(:br))
     - if @tweet.eyecatch.attached?
       .tweet_image
         = link_to @tweet.eyecatch, 'data-lightbox': @tweet.eyecatch do
