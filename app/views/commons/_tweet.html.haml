@@ -2,7 +2,7 @@
   .card
     .card_element
       .card_content
-        = tweet.content
+        = safe_join(tweet.content.split("\n"),tag(:br))
       - if tweet.eyecatch.attached?
         .card_image
           = image_tag tweet.eyecatch

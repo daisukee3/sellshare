@@ -34,6 +34,6 @@
           %p= user.followers.count
 
       .profilePage_user_introduction
-        = user.profile&.introduction
+        = safe_join(user.profile&.introduction.split("\n"),tag(:br))
   - user.tweets.each do  |tweet|
     = render 'commons/tweet', tweet: tweet
