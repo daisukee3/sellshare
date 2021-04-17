@@ -147,7 +147,7 @@ RSpec.describe 'Tweet', type: :system do
     end
     it '投稿にいいねしたりいいねを外すと、お気に入り一覧ページが期待通り表示されること' do
       visit favorites_path
-      expect(page).to have_content 'お気に入りの記事'
+      expect(page).to have_content 'お気に入りの投稿'
       tweet.likes.create(user_id: user.id)
       other_tweet.likes.create(user_id: user.id)
       visit favorites_path
