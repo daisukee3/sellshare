@@ -1,7 +1,7 @@
 # SellShare
 営業パーソンが日々の悩みや思いを誰でも簡単に投稿できるSNS投稿サービス。  
 下記ページにて公開しております。  
-URL:https://www.sellshare.ml/
+URL:https://www.sellshare.ml/users/sign_in
 
 # アプリケーションの概要  
 日々会社のため営業活動に勤しんでいる営業職が悩みや学びを投稿し、  
