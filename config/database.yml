@@ -19,3 +19,10 @@ production:
   username: sellshare
   password: <%= ENV['DATABASE_PASSWORD'] %>
   host: <%= ENV['DATABASE_HOST'] %>
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  database: sellshare_production
+  # username: root
+  socket: /var/lib/psql/psql.sock
+  port:     5432
