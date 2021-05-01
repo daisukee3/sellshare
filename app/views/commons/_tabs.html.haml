@@ -9,3 +9,7 @@
     = link_to (popular_post_path) do
       .tabs_item_popular
         %i.fa.fa-line-chart{"aria-hidden" => "true"} 
+  .tabs_item{class: "#{add_active_class(favorites_path)}"}
+    = link_to (favorites_path) do
+      %i.fa.fa-heart{"aria-hidden" => "true"}
+
