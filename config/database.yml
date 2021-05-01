@@ -15,14 +15,11 @@ test:
 
 production:
   <<: *default
-  database: sellshare_production
-  username: sellshare
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  host: <%= ENV['DATABASE_HOST'] %>
-  # adapter: postgresql
-  # encoding: utf8
-  # pool: 5
+  database: <%= ENV['DB_NAME'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOSTNAME'] %>
   # database: sellshare_production
-  # # username: root
-  # socket: /var/lib/psql/psql.sock
-  # port:     5432
+  # username: sellshare
+  # password: <%= ENV['DATABASE_PASSWORD'] %>
+  # host: <%= ENV['DATABASE_HOST'] %>
