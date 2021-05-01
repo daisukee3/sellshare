@@ -1,16 +1,17 @@
 .container
-  = search_form_for @q, url: search_tweets_path do |f|
-    .search_form.row.pb-4
-      .form-group.col-9
-        = f.search_field :content_cont, placeholder: '投稿を検索', class: 'form-control'
-      .form-group.col-1
-        = f.submit class: 'btn btn-primary'
-  - if @search_word.present?
-    %h3 ”#{@search_word}”の検索結果：#{@tweets.count}件
-    - @tweets.each do |tweet|
-      = render 'commons/tweet', tweet: tweet
-  - else
-    %h3 投稿一覧
-    - @tweets.each do |tweet|
-      = render 'commons/tweet', tweet: tweet
+  .search
+    = search_form_for @q, url: search_tweets_path do |f|
+      .search_form.row.pb-4
+        .form-group.col-9
+          = f.search_field :content_cont, placeholder: '投稿を検索', class: 'form-control'
+        .form-group.col-1
+          = f.submit class: 'btn btn-primary'
+    - if @search_word.present?
+      %h3 ”#{@search_word}”の検索結果：#{@tweets.count}件
+      - @tweets.each do |tweet|
+        = render 'commons/tweet', tweet: tweet
+    - else
+      %h3 投稿一覧
+      - @tweets.each do |tweet|
+        = render 'commons/tweet', tweet: tweet
 = paginate @tweets
