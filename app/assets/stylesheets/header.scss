@@ -68,6 +68,16 @@ $back-icon-size: 30px;
     }
   }
 
+  &_item {
+    display: flex;
+    position: absolute;
+    right: 60px;
+    top: 20px;
+    &_list {
+      margin-right: 25px;
+    }
+  }
+
   @media screen and (max-width:640px){
     a.header_loginBtn {
       background-color: $base-bg-color;
@@ -98,30 +108,42 @@ $back-icon-size: 30px;
       p {
         color: white;
         line-height: $avatar-size;
-        font-size: 23px;
+        font-size: 18px;
         margin-left: 3px;
         position: absolute;
-        left: 85px;
+        left: 77px;
         top:  13px;
         font-family: 'Lora', serif;
       }
       display: flex;
       vertical-align: middle;
       img {
-        width: 28px;
-        height: 28px;
+        width: 23px;
+        height: 23px;
         position: absolute;
-        left: 55px;
-        top:  17px;
+        left: 52px;
+        top:  21px;
       }
     }
     .header_back {
       position: absolute;
-      top: 19px;
-      left: 195px;
+      top: 22px;
+      left: 165px;
+      font-size: 13px;
     }
+    .header_item {
+      display: flex;
+      position: absolute;
+      right: 73px;
+      top: 25px;
+      &_list {
+        font-size: 13px;
+        margin-right: 15px;
+      }
+    }
+    
   
-    }
+  }
 
   &_back {
     position: absolute;

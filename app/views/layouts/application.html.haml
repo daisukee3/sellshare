@@ -31,6 +31,19 @@
       - if user_signed_in?
         .header_avatarimage
           = image_tag current_user.avatar_image, class: 'header_avatar'
+        .header_item
+          .header_item_list
+            = render 'notifications/circle'
+          .header_item_list
+            = link_to complaints_path  do
+              .boxContainer
+                %i.fa.fa-thumbs-down{"aria-hidden" => "true"}
+                %p グチる
+          .header_item_list
+            = link_to news_index_path  do
+              .boxContainer
+                %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
+                %p ニュース
         %input#openSidebarMenu.openSidebarMenu.hidden{:type => "checkbox"}/
         %label.sidebarIconToggle{:for => "openSidebarMenu"}
           .spinner.diagonal.part-1
@@ -39,22 +52,10 @@
         #sidebarMenu
           %ul.sidebarMenuInner
             %li
-              = render 'notifications/circle'
-            %li
-              = link_to complaints_path  do
-                .boxContainer
-                  %i.fa.fa-thumbs-down{"aria-hidden" => "true"}
-                  %p グチる
-            %li
               = link_to search_tweets_path  do
                 .boxContainer
                   %i.fa.fa-search{"aria-hidden" => "true"}
                   %p 検索する
-            %li
-              = link_to news_index_path  do
-                .boxContainer
-                  %i.fa.fa-newspaper-o{"aria-hidden" => "true"}
-                  %p ニュース
             %li
               = link_to users_path  do
                 .boxContainer
@@ -65,11 +66,6 @@
                 .boxContainer
                   %i.fa.fa-address-card-o{"aria-hidden" => "true"}
                   %p プロフィール
-            %li
-              = link_to  favorites_path  do
-                .boxContainer
-                  %i.fa.fa-heart{"aria-hidden" => "true"}
-                  %p お気に入り
             %li
               = link_to "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' do
                 .boxContainer
