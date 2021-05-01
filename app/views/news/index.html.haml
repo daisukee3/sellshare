@@ -1,13 +1,15 @@
 .container
-  %h2 Business News
-  = link_to 'Powered by News API', 'https://newsapi.org'
-  %hr/
-  #result no information...
-  :javascript
-    var f = function(){
-        $.ajax({
-            type: 'GET',
-            url: '/news/data'
-        });
-    };
-    f();
+  .news
+    %h2 Business News
+    .text-right
+      = link_to 'Powered by News API', 'https://newsapi.org'
+    %hr/
+    #result no information...
+    :javascript
+      var f = function(){
+          $.ajax({
+              type: 'GET',
+              url: '/news/data'
+          });
+      };
+      f();

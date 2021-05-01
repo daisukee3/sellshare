@@ -68,6 +68,16 @@ $back-icon-size: 30px;
     }
   }
 
+  &_item {
+    display: flex;
+    position: absolute;
+    right: 60px;
+    top: 20px;
+    &_list {
+      margin-right: 25px;
+    }
+  }
+
   @media screen and (max-width:640px){
     a.header_loginBtn {
       background-color: $base-bg-color;
@@ -98,30 +108,53 @@ $back-icon-size: 30px;
       p {
         color: white;
         line-height: $avatar-size;
-        font-size: 23px;
+        font-size: 16px;
         margin-left: 3px;
         position: absolute;
-        left: 85px;
+        left: 70px;
         top:  13px;
         font-family: 'Lora', serif;
       }
       display: flex;
       vertical-align: middle;
       img {
-        width: 28px;
-        height: 28px;
+        width: 21px;
+        height: 23px;
         position: absolute;
-        left: 55px;
-        top:  17px;
+        left: 48px;
+        top:  21px;
       }
     }
     .header_back {
       position: absolute;
-      top: 19px;
-      left: 195px;
+      top: 21px;
+      left: 148px;
+      font-size: 13px;
     }
+    .header_item {
+      display: flex;
+      position: absolute;
+      right: 50px;
+      top: 23px;
+      &_list {
+        p {
+          display: none;
+        }
+        font-size: 13px;
+        margin-right: 13px;
+      }
+    }
+    .header_avatar {
+      width: $avatar-size;
+      height: $avatar-size;
+      border-radius: 100%;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    
   
-    }
+  }
 
   &_back {
     position: absolute;
