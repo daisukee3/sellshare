@@ -1,8 +1,7 @@
 # SellShare
 営業パーソンが日々の悩みや思いを誰でも簡単に投稿できるSNS投稿サービス。  
 下記ページにて公開しております。  
-URL(AWS)：現在アップデート後の再デプロイの際にエラーが発生しており至急システム復旧対応しております。大変申し訳ございません。復旧後、すぐにURLを公開いたします。
-恐れ入りますが、Heroku公開バージョンにてご確認のほどよろしくお願い申し上げます。
+URL(AWS)：https://www.sellshare.ml/users/sign_in?locale=ja
 URL(Heroku):https://sellshare.herokuapp.com/users/sign_in?locale=ja
 
 # アプリケーションの概要  
