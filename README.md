@@ -13,6 +13,9 @@ URL(Heroku):https://sellshare.herokuapp.com/users/sign_in?locale=ja
 他者閲覧不可能のパーソナル空間で日々の思いをさらけ出すグチ投稿機能実装  
 最新のビジネスニュースを閲覧できる機能なども実装
 
+下記、Qiita記事にて作成した背景や想いなど、より詳細な情報を公開しております。
+https://qiita.com/daisukee3/private/370320c035434b5610b2
+
 # 技術的ポイント
 ・RSpecでModel, Request, Systemテスト記述（計133examples）  
 ・Ajaxを用いた非同期処理（コメント投稿、グチ投稿、フォロー/アンフォロー、お気に入り登録/未登録などの切り替え表示）  
@@ -40,7 +43,7 @@ URL(Heroku):https://sellshare.herokuapp.com/users/sign_in?locale=ja
 ・ページネーション機能(kaminari)
 ・モデルに対するバリデーション  
 ・SNSシェア機能: Twitterでアプリを共有することが可能  
-・ホーム画面では①全投稿、②フォロー中のユーザーの投稿、③いいねの多い投稿の３種をタブで切り替え可能
+・ホーム画面では①全投稿②フォロー中のユーザーの投稿③お気に入り登録の多い投稿④お気に入りの投稿の4種をタブで切り替え可能
 
 # その他  
 現在も開発を継続しており、順次実装予定です。  
@@ -51,6 +54,8 @@ URL(Heroku):https://sellshare.herokuapp.com/users/sign_in?locale=ja
 　Ruby on Rails  
 ■ データベース  
 　PostgreSQL  
+■ インフラ  
+　AWS( VPC | ELB | EC2 | S3 | Route53 | ACM | RDS | EIP | IAM ）  
  
 # 作者   
 Twitter:  
