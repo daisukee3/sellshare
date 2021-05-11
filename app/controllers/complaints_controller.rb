@@ -3,7 +3,7 @@ class ComplaintsController < ApplicationController
 
   def index
     @complaint = Complaint.new
-    @complaints = Complaint.where('complaints.created_at > ?', Date.today)
+    @complaints = current_user.complaints.where('complaints.created_at > ?', Date.today)
   end
 
   def create
