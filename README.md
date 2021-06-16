@@ -2,9 +2,8 @@
 営業パーソンが日々の悩みや思いを誰でも簡単に投稿できるSNS投稿サービス。  
 下記ページにて公開しております。  
 
-URL(AWS)：https://www.sellshare.ml/users/sign_in?locale=ja
-
 URL(Heroku):https://sellshare.herokuapp.com/users/sign_in?locale=ja
+※現在はAWSデプロイバージョンの公開はしておりません。
 
 # アプリケーションの概要  
 日々会社のため営業活動に勤しんでいる営業職が悩みや学びを投稿し、  
@@ -55,7 +54,8 @@ https://qiita.com/daisukee3/private/370320c035434b5610b2
 ■ データベース  
 　PostgreSQL  
 ■ インフラ  
-　AWS( VPC | ELB | EC2 | S3 | Route53 | ACM | RDS | EIP | IAM ）  
+Heroku
+※AWS( VPC | ELB | EC2 | S3 | Route53 | ACM | RDS | EIP | IAM ）デプロイバージョンは現在公開しておりません。
  
 # 作者   
 Twitter:  
